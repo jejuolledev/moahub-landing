@@ -171,9 +171,39 @@
                 font-size: 1.2rem;
             }
         }
+        .nav {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            text-align: center;
+        }
+        
+        .nav a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.3rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+        }
+        
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
+    <nav class="nav">
+        <a href="/">홈</a>
+        <a href="/about.html">소개</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/terms.html">이용약관</a>
+    </nav>
+
     <div class="container">
         <div class="header">
             <div class="logo">🎯</div>
@@ -197,6 +227,12 @@
         
         <div class="footer">
             <p>© 2025 Moahub. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+                <a href="/about.html" style="color: #999; text-decoration: none;">소개</a> · 
+                <a href="/faq.html" style="color: #999; text-decoration: none;">FAQ</a> · 
+                <a href="/privacy.html" style="color: #999; text-decoration: none;">개인정보처리방침</a> · 
+                <a href="/terms.html" style="color: #999; text-decoration: none;">이용약관</a>
+            </p>
         </div>
     </div>
 </body>

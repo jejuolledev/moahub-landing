@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Moahub는 재미있고 정확한 심리 테스트를 모아놓은 플랫폼입니다">
+    <title>모아허브 소개 - Moahub</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-1642749702806306">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .nav {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            text-align: center;
+        }
+        
+        .nav a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .content {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+        
+        .highlight-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-list {
+            margin: 1.5rem 0;
+        }
+        
+        .feature-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .feature-item h3 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .logo {
+                font-size: 3rem;
+            }
+            
+            .nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/">홈</a>
+        <a href="/about.html">소개</a>
+        <a href="/faq.html">자주 묻는 질문</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+        <a href="/terms.html">이용약관</a>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo">🎯</div>
+            <h1>모아허브를 소개합니다</h1>
+        </div>
+        
+        <div class="content">
+            <p>
+                안녕하세요! 모아허브(Moahub)는 Z세대를 위한 재미있고 유익한 심리 테스트 플랫폼입니다. 
+                우리는 복잡하고 지루한 설문지가 아닌, 짧고 재미있으면서도 과학적인 근거를 바탕으로 한 
+                성격 및 심리 분석 테스트를 제공합니다.
+            </p>
+            
+            <div class="highlight-box">
+                <h3>🎯 우리의 미션</h3>
+                <p>
+                    "나를 알아가는 재미있는 여정을 모두에게 제공한다"
+                </p>
+                <p>
+                    자기 이해는 성장의 첫걸음입니다. 모아허브는 여러분이 자신의 성격, 연애 스타일, 
+                    사고방식을 재미있게 탐구할 수 있도록 돕습니다. 친구들과 결과를 공유하며 
+                    서로를 더 깊이 이해하는 시간을 가져보세요.
+                </p>
+            </div>
+            
+            <h2>🌟 모아허브의 특징</h2>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h3>⚡ 빠르고 간편한 테스트</h3>
+                    <p>
+                        긴 시간이 필요 없습니다. 15~25개의 질문으로 5~10분 안에 
+                        나에 대한 깊이 있는 분석 결과를 받아보세요. 출퇴근길, 쉬는 시간, 
+                        언제 어디서나 가볍게 시작할 수 있습니다.
+                    </p>
+                </div>
+                
+                <div class="feature-item">
+                    <h3>🎨 직관적이고 예쁜 디자인</h3>
+                    <p>
+                        모바일에 최적화된 깔끔한 인터페이스로 누구나 쉽게 사용할 수 있습니다. 
+                        결과 페이지는 SNS 공유에 최적화되어 있어, 인스타그램이나 카카오톡으로 
+                        친구들과 바로 공유할 수 있습니다.
+                    </p>
+                </div>
+                
+                <div class="feature-item">
+                    <h3>🔬 과학적 근거 기반</h3>
+                    <p>
+                        재미만 추구하지 않습니다. MBTI는 융의 심리 유형론을, 테토/애겐 테스트는 
+                        애착 이론과 관계 심리학을 기반으로 설계되었습니다. 믿을 수 있는 결과를 
+                        제공하기 위해 끊임없이 연구하고 개선합니다.
+                    </p>
+                </div>
+                
+                <div class="feature-item">
+                    <h3>🆓 완전 무료</h3>
+                    <p>
+                        모든 테스트와 결과는 무료로 제공됩니다. 회원가입도 필요 없고, 
+                        숨겨진 비용도 없습니다. 누구나 자유롭게 이용하고 공유할 수 있습니다.
+                    </p>
+                </div>
+            </div>
+            
+            <h2>💡 제공하는 테스트</h2>
+            
+            <p>
+                <strong>🧠 MBTI 성격 테스트</strong><br>
+                세계적으로 가장 널리 사용되는 성격 유형 검사입니다. 25가지 질문을 통해 
+                16가지 성격 유형 중 나의 유형을 찾아보세요. 외향형인지 내향형인지, 
+                감각형인지 직관형인지, 사고형인지 감정형인지, 판단형인지 인식형인지를 
+                파악하여 나의 장점과 개선할 점, 어울리는 직업과 궁합까지 알려드립니다.
+            </p>
+            
+            <p>
+                <strong>💕 테토 vs 애겐 테스트</strong><br>
+                연애에서 나는 어떤 사람일까요? 15가지 질문으로 당신의 연애 주도권과 스타일을 
+                분석합니다. 테토형(순하고 수용적인 스타일)인지, 애겐형(적극적이고 주도적인 스타일)인지 
+                알아보고, 남성형/여성형에 따른 세부 유형까지 확인해보세요. 이상형과의 궁합도 
+                함께 제공됩니다.
+            </p>
+            
+            <h2>🚀 앞으로의 계획</h2>
+            
+            <p>
+                모아허브는 계속 성장합니다. 앞으로 직업 적성 테스트, 학습 스타일 분석, 
+                우정 궁합 테스트 등 다양한 심리 테스트를 추가할 예정입니다. 
+                여러분의 소중한 의견을 듣고 더 나은 서비스를 만들어가겠습니다.
+            </p>
+            
+            <p>
+                모아허브와 함께 나를 발견하고, 친구를 이해하고, 더 나은 관계를 만들어가세요. 
+                재미있는 심리 테스트의 세계로 지금 바로 떠나보세요!
+            </p>
+            
+            <div style="text-align: center;">
+                <a href="/" class="back-btn">🏠 홈으로 돌아가기</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
