@@ -24,9 +24,34 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 20px;
+        }
+        
+        .nav {
+            max-width: 600px;
+            width: 100%;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .nav a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0.3rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+        }
+        
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
         
         .container {
@@ -151,6 +176,16 @@
         }
         
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .nav a {
+                display: block;
+                margin: 0.5rem auto;
+                max-width: 200px;
+            }
+            
             .container {
                 padding: 2rem 1.5rem;
             }
@@ -170,28 +205,6 @@
             .site-card h3 {
                 font-size: 1.2rem;
             }
-        }
-        .nav {
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            text-align: center;
-        }
-        
-        .nav a {
-            display: inline-block;
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            margin: 0 0.3rem;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            transition: all 0.3s;
-            font-size: 0.85rem;
-        }
-        
-        .nav a:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
         }
     </style>
 </head>
