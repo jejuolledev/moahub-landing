@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="재미있는 심리 테스트와 성격 분석을 모아놓은 Moahub">
+    <meta name="description" content="재미있는 심리 테스트와 성격 분석을 모아놓은 Moahub. MBTI, 성격 분석, 심리테스트 완벽 가이드">
+    <meta name="keywords" content="MBTI, 성격테스트, 심리테스트, 성격분석, 연애궁합, 직업추천">
     <title>Moahub - 재미있는 테스트 모음</title>
     
     <!-- Favicon -->
@@ -23,17 +24,12 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             padding: 20px;
         }
         
         .nav {
-            max-width: 600px;
-            width: 100%;
-            margin-bottom: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
             text-align: center;
         }
         
@@ -55,12 +51,16 @@
         }
         
         .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .main-section {
             background: white;
             padding: 3rem 2rem;
             border-radius: 30px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            width: 100%;
+            margin-bottom: 3rem;
             animation: fadeIn 0.6s ease-out;
         }
         
@@ -127,28 +127,12 @@
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
         }
         
-        .site-card.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
         .site-card.pink-gradient {
             background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%);
         }
         
         .site-card.pink-gradient:hover {
             box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
-        }
-        
-        .site-card.coming-soon {
-            background: #f8f9fa;
-            opacity: 0.7;
-            cursor: default;
-            color: #999;
-        }
-        
-        .site-card.coming-soon:hover {
-            transform: none;
-            box-shadow: none;
         }
         
         .site-icon {
@@ -166,12 +150,82 @@
             opacity: 0.9;
         }
         
+        /* 블로그 섹션 스타일 */
+        .blog-section {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 3rem;
+        }
+        
+        .blog-section h2 {
+            text-align: center;
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-section .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .blog-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+        
+        .blog-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-card h3 {
+            color: #667eea;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .blog-card-desc {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        
+        .blog-card-link {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
         .footer {
             text-align: center;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eee;
-            color: #999;
+            margin-top: 3rem;
+            padding: 2rem;
+            color: rgba(255,255,255,0.9);
             font-size: 0.85rem;
         }
         
@@ -190,11 +244,15 @@
                 font-size: 0.75rem;
             }
             
-            .container {
+            .main-section, .blog-section {
                 padding: 2rem 1.5rem;
             }
             
             h1 {
+                font-size: 1.5rem;
+            }
+            
+            .blog-section h2 {
                 font-size: 1.5rem;
             }
             
@@ -209,12 +267,17 @@
             .site-card h3 {
                 font-size: 1.2rem;
             }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <nav class="nav">
         <a href="/">홈</a>
+        <a href="/blog.html">블로그</a>
         <a href="/about.html">소개</a>
         <a href="/faq.html">FAQ</a>
         <a href="/privacy.html">개인정보</a>
@@ -222,33 +285,115 @@
     </nav>
 
     <div class="container">
-        <div class="header">
-            <div class="logo">🎯</div>
-            <h1>Moahub</h1>
-            <p class="subtitle">재미있는 심리 테스트를 모았습니다</p>
-        </div>
-        
-        <div class="site-list">
-            <a href="https://mbti.moahub.co.kr" class="site-card active">
-                <div class="site-icon">🧠</div>
-                <h3>MBTI 성격 테스트</h3>
-                <p>나의 성격 유형을 정확하게 알아보세요<br>25가지 질문으로 분석합니다</p>
-            </a>
+        <!-- 메인 테스트 섹션 -->
+        <div class="main-section">
+            <div class="header">
+                <div class="logo">🎯</div>
+                <h1>Moahub</h1>
+                <p class="subtitle">재미있는 심리 테스트를 모았습니다</p>
+            </div>
             
-            <a href="https://teto.moahub.co.kr" class="site-card active pink-gradient">
-                <div class="site-icon">💕</div>
-                <h3>테토 vs 애겐 테스트</h3>
-                <p>너의 연애 주도권은 어디에?<br>15가지 질문으로 분석합니다</p>
-            </a>
+            <div class="site-list">
+                <a href="https://mbti.moahub.co.kr" class="site-card">
+                    <div class="site-icon">🧠</div>
+                    <h3>MBTI 성격 테스트</h3>
+                    <p>나의 성격 유형을 정확하게 알아보세요<br>25가지 질문으로 분석합니다</p>
+                </a>
+                
+                <a href="https://teto.moahub.co.kr" class="site-card pink-gradient">
+                    <div class="site-icon">💕</div>
+                    <h3>테토 vs 애겐 테스트</h3>
+                    <p>너의 연애 주도권은 어디에?<br>15가지 질문으로 분석합니다</p>
+                </a>
+            </div>
         </div>
-        
+
+        <!-- 블로그 섹션 -->
+        <div class="blog-section">
+            <h2>📚 심리 테스트 완벽 가이드</h2>
+            <p class="section-subtitle">MBTI부터 성격 심리학까지, 알아두면 유용한 심리 정보</p>
+            
+            <div class="blog-grid">
+                <a href="/blog/mbti-guide.html" class="blog-card">
+                    <div class="blog-card-icon">🎓</div>
+                    <h3>MBTI 완벽 가이드</h3>
+                    <p class="blog-card-desc">16가지 성격 유형의 기초부터 심화까지, MBTI의 모든 것을 알아보세요</p>
+                    <span class="blog-card-link">자세히 읽기 →</span>
+                </a>
+
+                <a href="/blog/psychology-tests.html" class="blog-card">
+                    <div class="blog-card-icon">📋</div>
+                    <h3>심리테스트의 종류와 활용</h3>
+                    <p class="blog-card-desc">MBTI, 에니어그램, 빅파이브까지 다양한 심리테스트를 소개합니다</p>
+                    <span class="blog-card-link">자세히 읽기 →</span>
+                </a>
+
+                <a href="/blog/mbti-types.html" class="blog-card">
+                    <div class="blog-card-icon">🔍</div>
+                    <h3>16가지 성격 유형 완전 분석</h3>
+                    <p class="blog-card-desc">INTJ부터 ESFP까지, 각 유형의 특징과 강점을 자세히 알아보세요</p>
+                    <span class="blog-card-link">자세히 읽기 →</span>
+                </a>
+
+                <a href="/blog/personality-science.html" class="blog-card">
+                    <div class="blog-card-icon">🧬</div>
+                    <h3>성격 심리학의 과학적 배경</h3>
+                    <p class="blog-card-desc">성격이 형성되는 원리와 측정 방법을 과학적으로 탐구합니다</p>
+                    <span class="blog-card-link">자세히 읽기 →</span>
+                </a>
+
+                <a href="/blog/relationship-personality.html" class="blog-card">
+                    <div class="blog-card-icon">💑</div>
+                    <h3>연애와 성격의 상관관계</h3>
+                    <p class="blog-card-desc">성격이 연애 패턴에 미치는 영향과 건강한 관계를 만드는 법</p>
+                    <span class="blog-card-link">자세히 읽기 →</span>
+                </a>
+
+                <a href="/blog/mbti-career.html" class="blog-card">
+                    <div class="blog-card-icon">💼</div>
+                    <h3>MBTI 유형별 적합 직업</h3>
+                    <p class="blog-card-desc">당신의 성격에 맞는 직업과 커리어 방향을 찾아보세요</p>
+                    <span class="blog-card-link">자세히 읽기 →</span>
+                </a>
+
+                <a href="/blog/personality-development.html" class="blog-card">
+                    <div class="blog-card-icon">🌱</div>
+                    <h3>성격은 바뀔 수 있을까?</h3>
+                    <p class="blog-card-desc">성격의 가소성과 자기 발전의 가능성을 과학적으로 분석합니다</p>
+                    <span class="blog-card-link">자세히 읽기 →</span>
+                </a>
+
+                <a href="/blog/mbti-compatibility.html" class="blog-card">
+                    <div class="blog-card-icon">💕</div>
+                    <h3>MBTI 궁합 완벽 분석</h3>
+                    <p class="blog-card-desc">MBTI 유형별 궁합과 관계에서의 강점과 주의점을 알아봅니다</p>
+                    <span class="blog-card-link">자세히 읽기 →</span>
+                </a>
+
+                <a href="/blog/psychological-test-history.html" class="blog-card">
+                    <div class="blog-card-icon">📜</div>
+                    <h3>심리테스트의 역사</h3>
+                    <p class="blog-card-desc">고대부터 현대까지 심리테스트가 발전해온 흥미로운 여정</p>
+                    <span class="blog-card-link">자세히 읽기 →</span>
+                </a>
+
+                <a href="/blog/personality-test-accuracy.html" class="blog-card">
+                    <div class="blog-card-icon">✅</div>
+                    <h3>성격 테스트의 정확도와 신뢰성</h3>
+                    <p class="blog-card-desc">신뢰할 수 있는 심리테스트를 선택하는 과학적 기준</p>
+                    <span class="blog-card-link">자세히 읽기 →</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- 푸터 -->
         <div class="footer">
-            <p>© 2025 Moahub. All rights reserved.</p>
+            <p style="color: white;">© 2025 Moahub. All rights reserved.</p>
             <p style="margin-top: 0.5rem; font-size: 0.8rem;">
-                <a href="/about.html" style="color: #999; text-decoration: none;">소개</a> · 
-                <a href="/faq.html" style="color: #999; text-decoration: none;">FAQ</a> · 
-                <a href="/privacy.html" style="color: #999; text-decoration: none;">개인정보처리방침</a> · 
-                <a href="/terms.html" style="color: #999; text-decoration: none;">이용약관</a>
+                <a href="/about.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">소개</a> · 
+                <a href="/faq.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">FAQ</a> · 
+                <a href="/privacy.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">개인정보처리방침</a> · 
+                <a href="/terms.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">이용약관</a>
             </p>
         </div>
     </div>

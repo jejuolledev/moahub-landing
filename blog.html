@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="심리테스트와 성격분석에 대한 깊이 있는 정보를 제공합니다">
+    <title>블로그 - Moahub</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-1642749702806306">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            text-align: center;
+        }
+        
+        .nav a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0.3rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+        }
+        
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .blog-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: #667eea;
+        }
+        
+        .blog-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-card h3 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .blog-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .blog-meta {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.85rem;
+            color: #999;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/">홈</a>
+        <a href="/blog.html">블로그</a>
+        <a href="/about.html">소개</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/terms.html">이용약관</a>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>📚 Moahub 블로그</h1>
+            <p class="subtitle">심리테스트와 성격분석에 대한 깊이 있는 정보</p>
+        </div>
+        
+        <div class="blog-grid">
+            <a href="/blog/mbti-guide.html" class="blog-card">
+                <div class="blog-icon">🧠</div>
+                <h3>MBTI 완벽 가이드</h3>
+                <p>MBTI의 모든 것, 기본 개념부터 실전 활용까지 상세히 알아봅니다.</p>
+                <div class="blog-meta">📖 10분 읽기</div>
+            </a>
+            
+            <a href="/blog/psychology-tests.html" class="blog-card">
+                <div class="blog-icon">🔬</div>
+                <h3>심리테스트의 종류와 활용</h3>
+                <p>다양한 심리테스트의 특징과 각각을 어떻게 활용할 수 있는지 소개합니다.</p>
+                <div class="blog-meta">📖 8분 읽기</div>
+            </a>
+            
+            <a href="/blog/mbti-types.html" class="blog-card">
+                <div class="blog-icon">🎭</div>
+                <h3>16가지 성격 유형 완전 분석</h3>
+                <p>MBTI 16가지 성격 유형의 특징, 강점, 약점을 심층 분석합니다.</p>
+                <div class="blog-meta">📖 15분 읽기</div>
+            </a>
+            
+            <a href="/blog/personality-science.html" class="blog-card">
+                <div class="blog-icon">🔭</div>
+                <h3>성격 심리학의 과학적 배경</h3>
+                <p>성격을 연구하는 심리학의 이론과 과학적 근거를 탐구합니다.</p>
+                <div class="blog-meta">📖 12분 읽기</div>
+            </a>
+            
+            <a href="/blog/relationship-personality.html" class="blog-card">
+                <div class="blog-icon">💑</div>
+                <h3>연애와 성격의 상관관계</h3>
+                <p>성격 유형이 연애 패턴과 관계에 미치는 영향을 분석합니다.</p>
+                <div class="blog-meta">📖 9분 읽기</div>
+            </a>
+            
+            <a href="/blog/mbti-career.html" class="blog-card">
+                <div class="blog-icon">💼</div>
+                <h3>MBTI 유형별 적합 직업</h3>
+                <p>각 MBTI 유형에 적합한 직업과 커리어 방향을 제시합니다.</p>
+                <div class="blog-meta">📖 11분 읽기</div>
+            </a>
+            
+            <a href="/blog/personality-development.html" class="blog-card">
+                <div class="blog-icon">🌱</div>
+                <h3>성격은 바뀔 수 있을까?</h3>
+                <p>성격의 가소성과 변화 가능성에 대한 심리학적 관점을 다룹니다.</p>
+                <div class="blog-meta">📖 10분 읽기</div>
+            </a>
+            
+            <a href="/blog/mbti-compatibility.html" class="blog-card">
+                <div class="blog-icon">💕</div>
+                <h3>MBTI 궁합 완벽 분석</h3>
+                <p>MBTI 유형별 궁합과 관계에서의 강점과 주의점을 알아봅니다.</p>
+                <div class="blog-meta">📖 13분 읽기</div>
+            </a>
+            
+            <a href="/blog/psychological-test-history.html" class="blog-card">
+                <div class="blog-icon">📜</div>
+                <h3>심리테스트의 역사</h3>
+                <p>고대부터 현대까지 심리테스트가 발전해온 흥미로운 역사를 소개합니다.</p>
+                <div class="blog-meta">📖 9분 읽기</div>
+            </a>
+            
+            <a href="/blog/personality-test-accuracy.html" class="blog-card">
+                <div class="blog-icon">✅</div>
+                <h3>성격 테스트의 정확도와 신뢰성</h3>
+                <p>성격 테스트를 평가하는 기준과 신뢰할 수 있는 테스트 선택법을 안내합니다.</p>
+                <div class="blog-meta">📖 8분 읽기</div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
