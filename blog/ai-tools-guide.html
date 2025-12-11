@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ChatGPT, Claude, Gemini부터 이미지 생성 AI까지! 2024년 필수 AI 도구 완벽 비교 가이드">
+    <meta name="keywords" content="AI 도구, ChatGPT, Claude, Gemini, Midjourney, AI 비교">
+    <title>AI 도구 완벽 가이드 - Moahub 블로그</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-1642749702806306">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.8;
+        }
+
+        .nav {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            text-align: center;
+        }
+
+        .nav a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0.3rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .article {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .article-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .article-content {
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .article-content h2 {
+            color: #66a6ff;
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1rem;
+        }
+
+        .article-content h3 {
+            color: #555;
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-box {
+            background: #f0f8ff;
+            padding: 1.5rem;
+            border-left: 4px solid #66a6ff;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .tool-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tool-card:hover {
+            border-color: #66a6ff;
+        }
+
+        .tool-card h4 {
+            color: #66a6ff;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tool-card .tool-icon {
+            font-size: 1.5rem;
+        }
+
+        .tool-card .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tool-card .pros h5 {
+            color: #28a745;
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-card .cons h5 {
+            color: #dc3545;
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-card ul {
+            margin: 0;
+            padding-left: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .tool-card li {
+            margin-bottom: 0.3rem;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-box h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #66a6ff;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .related-posts {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .related-posts h3 {
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .related-link {
+            display: block;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #66a6ff;
+            transition: all 0.3s;
+        }
+
+        .related-link:hover {
+            background: #66a6ff;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table th {
+            background: #f8f9fa;
+            color: #66a6ff;
+            font-weight: bold;
+        }
+
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        @media (max-width: 768px) {
+            .article {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .article-content {
+                font-size: 1rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .tool-card .pros-cons {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                font-size: 0.8rem;
+            }
+
+            .comparison-table th, .comparison-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/">홈</a>
+        <a href="/blog.html">블로그</a>
+        <a href="/about.html">소개</a>
+        <a href="/faq.html">FAQ</a>
+    </nav>
+
+    <article class="article">
+        <header class="article-header">
+            <div class="article-icon">🛠️</div>
+            <h1>AI 도구 완벽 가이드</h1>
+            <div class="article-meta">📖 15분 읽기 · 2025년 12월</div>
+        </header>
+
+        <div class="article-content">
+            <p>수많은 AI 도구가 쏟아지는 지금, 어떤 도구를 선택해야 할지 고민되시나요? 이 가이드에서는 2024년 현재 가장 유용한 AI 도구들을 목적별로 정리하고 비교해드립니다. 당신의 업무와 목적에 딱 맞는 AI 도구를 찾아보세요!</p>
+
+            <h2>대화형 AI (챗봇)</h2>
+            <p>텍스트 기반의 대화형 AI는 가장 범용적으로 활용할 수 있는 도구입니다. 글쓰기, 코딩, 번역, 브레인스토밍 등 다양한 작업에 활용됩니다.</p>
+
+            <div class="tool-card">
+                <h4><span class="tool-icon">💬</span> ChatGPT (OpenAI)</h4>
+                <p>가장 유명한 AI 챗봇으로, GPT-4를 기반으로 합니다. 플러그인과 GPTs 생태계를 통해 확장 기능을 제공합니다.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>✅ 장점</h5>
+                        <ul>
+                            <li>가장 넓은 사용자 커뮤니티</li>
+                            <li>다양한 플러그인 지원</li>
+                            <li>DALL-E 3 이미지 생성 통합</li>
+                            <li>Code Interpreter 기능</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>❌ 단점</h5>
+                        <ul>
+                            <li>무료 버전 기능 제한</li>
+                            <li>피크 시간 응답 속도 저하</li>
+                            <li>한국어 응답 품질 변동</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <h4><span class="tool-icon">🤖</span> Claude (Anthropic)</h4>
+                <p>안전성과 유용성을 강조하는 AI 챗봇입니다. 긴 문서 처리와 코딩에 강점이 있습니다.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>✅ 장점</h5>
+                        <ul>
+                            <li>매우 긴 문서 처리 가능 (200K 토큰)</li>
+                            <li>코딩 능력 우수</li>
+                            <li>안전하고 윤리적인 응답</li>
+                            <li>빠른 응답 속도</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>❌ 단점</h5>
+                        <ul>
+                            <li>이미지 생성 미지원</li>
+                            <li>플러그인 생태계 부족</li>
+                            <li>실시간 인터넷 검색 제한</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <h4><span class="tool-icon">✨</span> Gemini (Google)</h4>
+                <p>Google의 멀티모달 AI로, 텍스트, 이미지, 코드 등을 통합 처리합니다. Google 서비스와의 연동이 강점입니다.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>✅ 장점</h5>
+                        <ul>
+                            <li>Google 서비스 통합</li>
+                            <li>실시간 정보 검색</li>
+                            <li>무료 버전 기능 풍부</li>
+                            <li>멀티모달 지원</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>❌ 단점</h5>
+                        <ul>
+                            <li>일부 언어에서 불안정</li>
+                            <li>응답 일관성 부족</li>
+                            <li>창의적 글쓰기 약함</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2>이미지 생성 AI</h2>
+            <p>텍스트 프롬프트만으로 고품질 이미지를 생성할 수 있는 AI 도구들입니다.</p>
+
+            <div class="tool-card">
+                <h4><span class="tool-icon">🎨</span> Midjourney</h4>
+                <p>가장 예술적이고 고품질의 이미지를 생성하는 AI입니다. Discord를 통해 사용합니다.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>✅ 장점</h5>
+                        <ul>
+                            <li>최고 수준의 이미지 품질</li>
+                            <li>예술적 스타일 탁월</li>
+                            <li>활발한 커뮤니티</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>❌ 단점</h5>
+                        <ul>
+                            <li>무료 버전 없음</li>
+                            <li>Discord 사용 필요</li>
+                            <li>학습 곡선 있음</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <h4><span class="tool-icon">🖼️</span> DALL-E 3 (OpenAI)</h4>
+                <p>ChatGPT에 통합된 이미지 생성 AI로, 자연어 프롬프트를 정확하게 이해합니다.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>✅ 장점</h5>
+                        <ul>
+                            <li>ChatGPT 통합 편의성</li>
+                            <li>텍스트 렌더링 우수</li>
+                            <li>프롬프트 이해력 높음</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>❌ 단점</h5>
+                        <ul>
+                            <li>스타일 다양성 부족</li>
+                            <li>생성 속도 느림</li>
+                            <li>사용량 제한</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <h4><span class="tool-icon">🌟</span> Stable Diffusion</h4>
+                <p>오픈소스 이미지 생성 AI로, 로컬에서 무료로 실행 가능합니다.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>✅ 장점</h5>
+                        <ul>
+                            <li>완전 무료 (로컬 실행)</li>
+                            <li>높은 커스터마이징</li>
+                            <li>활발한 오픈소스 커뮤니티</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>❌ 단점</h5>
+                        <ul>
+                            <li>고사양 PC 필요</li>
+                            <li>기술적 지식 요구</li>
+                            <li>설정 복잡함</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2>코딩 AI</h2>
+            <p>프로그래밍 작업을 도와주는 전문 AI 도구들입니다.</p>
+
+            <div class="tool-card">
+                <h4><span class="tool-icon">👨‍💻</span> GitHub Copilot</h4>
+                <p>VS Code 등 IDE에 통합되어 실시간 코드 자동완성을 제공합니다.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>✅ 장점</h5>
+                        <ul>
+                            <li>IDE 완벽 통합</li>
+                            <li>실시간 코드 제안</li>
+                            <li>다양한 언어 지원</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>❌ 단점</h5>
+                        <ul>
+                            <li>월 구독료 필요</li>
+                            <li>인터넷 연결 필요</li>
+                            <li>때때로 부정확한 제안</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <h4><span class="tool-icon">⚡</span> Cursor</h4>
+                <p>AI 기능이 내장된 차세대 코드 에디터입니다. 코드 작성, 수정, 설명을 AI가 도와줍니다.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>✅ 장점</h5>
+                        <ul>
+                            <li>AI 네이티브 에디터</li>
+                            <li>대화형 코드 수정</li>
+                            <li>무료 버전 제공</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>❌ 단점</h5>
+                        <ul>
+                            <li>VS Code 익스텐션 일부 미지원</li>
+                            <li>무료 버전 제한</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2>목적별 AI 도구 추천</h2>
+
+            <table class="comparison-table">
+                <tr>
+                    <th>목적</th>
+                    <th>추천 도구</th>
+                    <th>이유</th>
+                </tr>
+                <tr>
+                    <td>글쓰기/번역</td>
+                    <td>ChatGPT, Claude</td>
+                    <td>자연스러운 한국어 생성</td>
+                </tr>
+                <tr>
+                    <td>코딩</td>
+                    <td>Claude, GitHub Copilot</td>
+                    <td>정확한 코드 생성과 설명</td>
+                </tr>
+                <tr>
+                    <td>이미지 생성</td>
+                    <td>Midjourney</td>
+                    <td>최고 품질의 예술적 이미지</td>
+                </tr>
+                <tr>
+                    <td>문서 분석</td>
+                    <td>Claude</td>
+                    <td>긴 문서 처리 능력</td>
+                </tr>
+                <tr>
+                    <td>최신 정보 검색</td>
+                    <td>Gemini</td>
+                    <td>Google 검색 통합</td>
+                </tr>
+                <tr>
+                    <td>학습/교육</td>
+                    <td>ChatGPT</td>
+                    <td>풍부한 학습 자료와 설명</td>
+                </tr>
+            </table>
+
+            <div class="highlight-box">
+                <h3>💡 프로 팁</h3>
+                <p>하나의 AI 도구에만 의존하지 말고, 목적에 따라 여러 도구를 병행 사용하세요. 각 AI의 강점을 조합하면 더 나은 결과를 얻을 수 있습니다.</p>
+            </div>
+
+            <div class="cta-box">
+                <h3>당신의 AI 활용 능력은?</h3>
+                <p style="margin-bottom: 1.5rem;">12개 질문으로 AI 활용 수준을 측정하고 맞춤 조언을 받아보세요!</p>
+                <a href="https://ai-level-test.moahub.co.kr" class="cta-button">무료 테스트 시작하기 →</a>
+            </div>
+
+            <h2>마무리</h2>
+            <p>AI 도구는 빠르게 진화하고 있습니다. 중요한 것은 특정 도구에 집착하는 것이 아니라, AI를 활용하는 능력 자체를 키우는 것입니다. 다양한 도구를 경험해보고, 자신의 업무에 맞는 최적의 조합을 찾아보세요.</p>
+
+            <p>AI 도구를 잘 활용하면 업무 효율이 크게 높아지고, 더 창의적인 작업에 집중할 수 있습니다. 지금 바로 시작해보세요!</p>
+        </div>
+
+        <div class="related-posts">
+            <h3>관련 글 더보기</h3>
+            <a href="/blog/ai-basics.html" class="related-link">→ AI 시대 생존 가이드</a>
+            <a href="/blog/chatgpt-tips.html" class="related-link">→ ChatGPT 200% 활용법</a>
+            <a href="/blog.html" class="related-link">→ 블로그 홈으로</a>
+        </div>
+    </article>
+</body>
+</html>
