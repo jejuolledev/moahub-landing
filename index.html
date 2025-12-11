@@ -3,363 +3,444 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="재미있는 심리 테스트와 성격 분석을 모아놓은 Moahub. MBTI, 성격 분석, 심리테스트 완벽 가이드">
-    <meta name="keywords" content="MBTI, 성격테스트, 심리테스트, 성격분석, 연애궁합, 직업추천">
+    <meta name="description" content="재미있는 테스트를 모아놓은 Moahub! MBTI 성격 테스트, 연애 테스트, AI 레벨 테스트까지 다양한 테스트를 즐겨보세요">
+    <meta name="keywords" content="MBTI, 성격테스트, 심리테스트, AI테스트, 연애테스트, 타로">
     <title>Moahub - 재미있는 테스트 모음</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    
+
     <!-- Google AdSense -->
     <meta name="google-adsense-account" content="ca-pub-1642749702806306">
-    
+
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ffecd2 100%);
             min-height: 100vh;
             padding: 20px;
         }
-        
+
+        /* 배경 장식 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255, 182, 193, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(173, 216, 230, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(255, 218, 185, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
         .nav {
             max-width: 1200px;
             margin: 0 auto 2rem;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
-        
+
         .nav a {
             display: inline-block;
-            color: white;
+            color: #666;
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             margin: 0.3rem;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 25px;
             transition: all 0.3s;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        
+
         .nav a:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
+            background: white;
+            color: #ff6b9d;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.2);
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
-        
+
         .main-section {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             padding: 3rem 2rem;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            margin-bottom: 1rem;
-            animation: fadeIn 0.6s ease-out;
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            animation: floatIn 0.8s ease-out;
+            backdrop-filter: blur(10px);
         }
-        
-        @keyframes fadeIn {
+
+        @keyframes floatIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
-        
+
         .logo {
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 1rem;
-            animation: bounce 2s infinite;
+            animation: wiggle 3s ease-in-out infinite;
         }
-        
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
         }
-        
+
         h1 {
             color: #333;
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 0.5rem;
+            font-weight: 700;
         }
-        
+
+        h1 span {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
         .subtitle {
-            color: #666;
-            font-size: 1rem;
+            color: #888;
+            font-size: 1.1rem;
+            font-weight: 400;
         }
-        
+
         .site-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
         }
-        
+
         .site-card {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 2rem;
-            margin: 1rem 0;
-            border-radius: 20px;
+            border-radius: 25px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-decoration: none;
             display: block;
             color: white;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .site-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+            transform: scale(0);
+            transition: transform 0.6s;
+        }
+
+        .site-card:hover::before {
+            transform: scale(1);
+        }
+
         .site-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
         }
-        
+
         .site-card.pink-gradient {
-            background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%);
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            color: #c44569;
         }
-        
+
         .site-card.pink-gradient:hover {
-            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+            box-shadow: 0 20px 40px rgba(255, 154, 158, 0.4);
         }
-        
+
         .site-card.purple-gradient {
-            background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+            color: #6c5ce7;
         }
-        
+
         .site-card.purple-gradient:hover {
-            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
+            box-shadow: 0 20px 40px rgba(161, 140, 209, 0.4);
         }
-        
+
         .site-card.ai-gradient {
-            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #00b894;
         }
-        
+
         .site-card.ai-gradient:hover {
-            box-shadow: 0 10px 30px rgba(102, 166, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(168, 237, 234, 0.4);
         }
-        
-        .site-card .badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.3);
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            margin-top: 8px;
+
+        .site-card.blue-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
         }
-        
+
         .site-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
         }
-        
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
         .site-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
         }
-        
+
         .site-card p {
             font-size: 0.95rem;
             opacity: 0.9;
+            line-height: 1.6;
         }
-        
-        /* 블로그 섹션 스타일 */
+
+        .site-card .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        /* 블로그 섹션 */
         .blog-section {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             padding: 3rem 2rem;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            margin-bottom: 3rem;
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
         }
-        
+
         .blog-section h2 {
             text-align: center;
             color: #333;
             font-size: 2rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
         }
-        
+
         .blog-section .section-subtitle {
             text-align: center;
-            color: #666;
-            margin-bottom: 3rem;
+            color: #888;
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
         }
-        
+
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
         }
-        
+
         .blog-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 2rem;
-            border-radius: 20px;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            padding: 1.8rem;
+            border-radius: 25px;
             text-decoration: none;
             color: #333;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 2px solid transparent;
             display: flex;
             flex-direction: column;
         }
-        
+
         .blog-card:hover {
-            transform: translateY(-5px);
-            border-color: #667eea;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+            transform: translateY(-8px);
+            border-color: #ff6b9d;
+            box-shadow: 0 15px 35px rgba(255, 107, 157, 0.15);
+            background: white;
         }
-        
+
         .blog-card-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
-        
+
         .blog-card h3 {
-            color: #667eea;
-            font-size: 1.2rem;
+            color: #ff6b9d;
+            font-size: 1.15rem;
             margin-bottom: 0.8rem;
+            font-weight: 600;
         }
-        
+
         .blog-card-desc {
             color: #666;
             font-size: 0.9rem;
-            line-height: 1.6;
+            line-height: 1.7;
             margin-bottom: 1rem;
             flex-grow: 1;
         }
-        
+
         .blog-card-link {
-            color: #667eea;
-            font-weight: bold;
+            color: #ff6b9d;
+            font-weight: 600;
             font-size: 0.9rem;
         }
-        
+
         /* 스크롤 인디케이터 */
         .scroll-indicator {
             text-align: center;
-            padding: 0.5rem 0;
-            margin-top: 0;
-            animation: fadeIn 0.6s ease-out 0.5s both;
+            padding: 1rem 0;
+            animation: floatIn 0.8s ease-out 0.3s both;
         }
-        
+
         .scroll-arrow {
             display: inline-block;
             width: 60px;
             height: 60px;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 50%;
             cursor: pointer;
             transition: all 0.3s;
             position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
-        
+
         .scroll-arrow:hover {
-            background: rgba(255, 255, 255, 0.5);
+            background: white;
             transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(255, 107, 157, 0.3);
         }
-        
+
         .scroll-arrow::before {
             content: '↓';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 2rem;
-            color: white;
+            font-size: 1.8rem;
+            color: #ff6b9d;
             animation: bounceArrow 2s infinite;
         }
-        
+
         @keyframes bounceArrow {
-            0%, 100% {
-                transform: translate(-50%, -50%);
-            }
-            50% {
-                transform: translate(-50%, -30%);
-            }
+            0%, 100% { transform: translate(-50%, -50%); }
+            50% { transform: translate(-50%, -30%); }
         }
-        
+
         .scroll-text {
-            color: white;
+            color: #666;
             font-size: 0.9rem;
-            margin-top: 0.3rem;
-            opacity: 0.9;
+            margin-top: 0.5rem;
+            font-weight: 500;
         }
-        
+
         .footer {
             text-align: center;
-            margin-top: 3rem;
             padding: 2rem;
-            color: rgba(255,255,255,0.9);
+            color: #666;
             font-size: 0.85rem;
         }
-        
+
+        .footer a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #ff6b9d;
+        }
+
         @media (max-width: 768px) {
             body {
-                padding: 10px;
+                padding: 12px;
             }
-            
+
             .nav {
                 margin-bottom: 1.5rem;
             }
-            
+
             .nav a {
-                padding: 0.4rem 0.7rem;
+                padding: 0.5rem 0.9rem;
                 margin: 0.2rem;
-                font-size: 0.75rem;
+                font-size: 0.8rem;
             }
-            
+
             .main-section, .blog-section {
                 padding: 2rem 1.5rem;
+                border-radius: 30px;
             }
-            
+
             h1 {
-                font-size: 1.5rem;
+                font-size: 2rem;
             }
-            
+
             .blog-section h2 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
-            
+
             .logo {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
-            
+
+            .site-list {
+                grid-template-columns: 1fr;
+            }
+
             .site-card {
-                padding: 1.5rem;
+                padding: 1.8rem;
             }
-            
+
             .site-card h3 {
-                font-size: 1.2rem;
+                font-size: 1.25rem;
             }
-            
+
             .blog-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .scroll-arrow {
                 width: 50px;
                 height: 50px;
             }
-            
+
             .scroll-arrow::before {
                 font-size: 1.5rem;
-            }
-            
-            .scroll-text {
-                font-size: 0.8rem;
             }
         }
     </style>
@@ -378,34 +459,37 @@
         <!-- 메인 테스트 섹션 -->
         <div class="main-section">
             <div class="header">
-                <div class="logo">🎯</div>
-                <h1>Moahub</h1>
-                <p class="subtitle">재미있는 심리 테스트를 모았습니다</p>
+                <div class="logo">✨</div>
+                <h1><span>Moahub</span></h1>
+                <p class="subtitle">나를 알아가는 재미있는 테스트 모음</p>
             </div>
-            
+
             <div class="site-list">
-                <a href="https://mbti.moahub.co.kr" class="site-card">
+                <a href="https://mbti.moahub.co.kr" class="site-card blue-gradient">
                     <div class="site-icon">🧠</div>
                     <h3>MBTI 성격 테스트</h3>
-                    <p>나의 성격 유형을 정확하게 알아보세요<br>25가지 질문으로 분석합니다</p>
+                    <p>나의 성격 유형은 뭘까?<br>25가지 질문으로 알아보기</p>
+                    <span class="badge">인기</span>
                 </a>
-                
+
                 <a href="https://teto.moahub.co.kr" class="site-card pink-gradient">
                     <div class="site-icon">💕</div>
                     <h3>테토 vs 애겐 테스트</h3>
-                    <p>너의 연애 주도권은 어디에?<br>15가지 질문으로 분석합니다</p>
+                    <p>나의 연애 스타일은?<br>연애 주도권 테스트</p>
+                    <span class="badge">NEW</span>
                 </a>
-                
+
                 <a href="https://tarot.moahub.co.kr" class="site-card purple-gradient">
                     <div class="site-icon">🔮</div>
                     <h3>오늘의 타로</h3>
-                    <p>신비로운 타로로 운세를 확인하세요<br>오늘의 운세 & 과거·현재·미래</p>
+                    <p>신비로운 타로 카드로<br>오늘의 운세 확인하기</p>
                 </a>
-                
+
                 <a href="https://ai-level-test.moahub.co.kr" class="site-card ai-gradient">
                     <div class="site-icon">🤖</div>
                     <h3>AI 레벨 테스트</h3>
-                    <p>ChatGPT 시대, 나는 어느 단계일까?<br>12개 질문으로 AI 활용도·이해도 체크!</p>
+                    <p>ChatGPT 시대, 나는 어디쯤?<br>AI 활용 능력 체크!</p>
+                    <span class="badge">HOT</span>
                 </a>
             </div>
         </div>
@@ -418,118 +502,104 @@
 
         <!-- 블로그 섹션 -->
         <div class="blog-section">
-            <h2>📚 심리 테스트 완벽 가이드</h2>
-            <p class="section-subtitle">MBTI부터 성격 심리학까지, 알아두면 유용한 심리 정보</p>
-            
+            <h2>📖 읽어볼 만한 이야기</h2>
+            <p class="section-subtitle">심리학, AI, 자기계발까지 다양한 이야기를 만나보세요</p>
+
             <div class="blog-grid">
-                <a href="/blog/tarot-guide.html" class="blog-card">
-                    <div class="blog-card-icon">🔮</div>
-                    <h3>타로 카드 초보자 가이드</h3>
-                    <p class="blog-card-desc">타로의 역사부터 78장 카드의 의미까지, 신비로운 타로의 세계를 알아보세요</p>
-                    <span class="blog-card-link">자세히 읽기 →</span>
-                </a>
-
-                <a href="/blog/mbti-guide.html" class="blog-card">
-                    <div class="blog-card-icon">🎓</div>
-                    <h3>MBTI 완벽 가이드</h3>
-                    <p class="blog-card-desc">16가지 성격 유형의 기초부터 심화까지, MBTI의 모든 것을 알아보세요</p>
-                    <span class="blog-card-link">자세히 읽기 →</span>
-                </a>
-
-                <a href="/blog/psychology-tests.html" class="blog-card">
-                    <div class="blog-card-icon">📋</div>
-                    <h3>심리테스트의 종류와 활용</h3>
-                    <p class="blog-card-desc">MBTI, 에니어그램, 빅파이브까지 다양한 심리테스트를 소개합니다</p>
-                    <span class="blog-card-link">자세히 읽기 →</span>
-                </a>
-
-                <a href="/blog/mbti-types.html" class="blog-card">
-                    <div class="blog-card-icon">🔍</div>
-                    <h3>16가지 성격 유형 완전 분석</h3>
-                    <p class="blog-card-desc">INTJ부터 ESFP까지, 각 유형의 특징과 강점을 자세히 알아보세요</p>
-                    <span class="blog-card-link">자세히 읽기 →</span>
-                </a>
-
-                <a href="/blog/personality-science.html" class="blog-card">
-                    <div class="blog-card-icon">🧬</div>
-                    <h3>성격 심리학의 과학적 배경</h3>
-                    <p class="blog-card-desc">성격이 형성되는 원리와 측정 방법을 과학적으로 탐구합니다</p>
-                    <span class="blog-card-link">자세히 읽기 →</span>
-                </a>
-
-                <a href="/blog/relationship-personality.html" class="blog-card">
-                    <div class="blog-card-icon">💑</div>
-                    <h3>연애와 성격의 상관관계</h3>
-                    <p class="blog-card-desc">성격이 연애 패턴에 미치는 영향과 건강한 관계를 만드는 법</p>
-                    <span class="blog-card-link">자세히 읽기 →</span>
-                </a>
-
-                <a href="/blog/mbti-career.html" class="blog-card">
-                    <div class="blog-card-icon">💼</div>
-                    <h3>MBTI 유형별 적합 직업</h3>
-                    <p class="blog-card-desc">당신의 성격에 맞는 직업과 커리어 방향을 찾아보세요</p>
-                    <span class="blog-card-link">자세히 읽기 →</span>
-                </a>
-
-                <a href="/blog/personality-development.html" class="blog-card">
-                    <div class="blog-card-icon">🌱</div>
-                    <h3>성격은 바뀔 수 있을까?</h3>
-                    <p class="blog-card-desc">성격의 가소성과 자기 발전의 가능성을 과학적으로 분석합니다</p>
-                    <span class="blog-card-link">자세히 읽기 →</span>
-                </a>
-
-                <a href="/blog/mbti-compatibility.html" class="blog-card">
-                    <div class="blog-card-icon">💕</div>
-                    <h3>MBTI 궁합 완벽 분석</h3>
-                    <p class="blog-card-desc">MBTI 유형별 궁합과 관계에서의 강점과 주의점을 알아봅니다</p>
-                    <span class="blog-card-link">자세히 읽기 →</span>
-                </a>
-
-                <a href="/blog/psychological-test-history.html" class="blog-card">
-                    <div class="blog-card-icon">📜</div>
-                    <h3>심리테스트의 역사</h3>
-                    <p class="blog-card-desc">고대부터 현대까지 심리테스트가 발전해온 흥미로운 여정</p>
-                    <span class="blog-card-link">자세히 읽기 →</span>
-                </a>
-
-                <a href="/blog/personality-test-accuracy.html" class="blog-card">
-                    <div class="blog-card-icon">✅</div>
-                    <h3>성격 테스트의 정확도와 신뢰성</h3>
-                    <p class="blog-card-desc">신뢰할 수 있는 심리테스트를 선택하는 과학적 기준</p>
-                    <span class="blog-card-link">자세히 읽기 →</span>
-                </a>
-
                 <a href="/blog/ai-basics.html" class="blog-card">
                     <div class="blog-card-icon">🤖</div>
                     <h3>AI 시대 생존 가이드</h3>
-                    <p class="blog-card-desc">ChatGPT 시대를 살아가는 현대인을 위한 AI 완벽 가이드</p>
-                    <span class="blog-card-link">자세히 읽기 →</span>
+                    <p class="blog-card-desc">ChatGPT 시대, 뒤처지지 않으려면? AI 기초부터 실전까지!</p>
+                    <span class="blog-card-link">읽어보기 →</span>
                 </a>
 
                 <a href="/blog/ai-tools-guide.html" class="blog-card">
                     <div class="blog-card-icon">🛠️</div>
-                    <h3>AI 도구 완벽 가이드</h3>
-                    <p class="blog-card-desc">ChatGPT, Claude, Gemini부터 이미지 생성 AI까지 완벽 비교</p>
-                    <span class="blog-card-link">자세히 읽기 →</span>
+                    <h3>AI 도구 완벽 비교</h3>
+                    <p class="blog-card-desc">ChatGPT vs Claude vs Gemini, 어떤 AI가 나한테 맞을까?</p>
+                    <span class="blog-card-link">읽어보기 →</span>
                 </a>
 
                 <a href="/blog/chatgpt-tips.html" class="blog-card">
                     <div class="blog-card-icon">💬</div>
                     <h3>ChatGPT 200% 활용법</h3>
-                    <p class="blog-card-desc">프롬프트 엔지니어링부터 고급 활용법까지 실전 팁 완벽 정리</p>
-                    <span class="blog-card-link">자세히 읽기 →</span>
+                    <p class="blog-card-desc">프롬프트 잘 쓰는 법부터 고급 팁까지 실전 노하우!</p>
+                    <span class="blog-card-link">읽어보기 →</span>
+                </a>
+
+                <a href="/blog/mbti-guide.html" class="blog-card">
+                    <div class="blog-card-icon">🎓</div>
+                    <h3>MBTI 완벽 가이드</h3>
+                    <p class="blog-card-desc">16가지 성격 유형, 제대로 알고 활용하기!</p>
+                    <span class="blog-card-link">읽어보기 →</span>
+                </a>
+
+                <a href="/blog/tarot-guide.html" class="blog-card">
+                    <div class="blog-card-icon">🔮</div>
+                    <h3>타로 카드 입문 가이드</h3>
+                    <p class="blog-card-desc">타로의 역사부터 78장 카드의 의미까지 알아보기</p>
+                    <span class="blog-card-link">읽어보기 →</span>
+                </a>
+
+                <a href="/blog/mbti-types.html" class="blog-card">
+                    <div class="blog-card-icon">🔍</div>
+                    <h3>16가지 MBTI 유형 분석</h3>
+                    <p class="blog-card-desc">INTJ부터 ESFP까지, 각 유형의 특징 완전 정복!</p>
+                    <span class="blog-card-link">읽어보기 →</span>
+                </a>
+
+                <a href="/blog/relationship-personality.html" class="blog-card">
+                    <div class="blog-card-icon">💑</div>
+                    <h3>연애와 성격의 관계</h3>
+                    <p class="blog-card-desc">내 성격이 연애 스타일에 미치는 영향은?</p>
+                    <span class="blog-card-link">읽어보기 →</span>
+                </a>
+
+                <a href="/blog/mbti-career.html" class="blog-card">
+                    <div class="blog-card-icon">💼</div>
+                    <h3>MBTI별 추천 직업</h3>
+                    <p class="blog-card-desc">내 성격에 딱 맞는 커리어 찾기!</p>
+                    <span class="blog-card-link">읽어보기 →</span>
+                </a>
+
+                <a href="/blog/personality-development.html" class="blog-card">
+                    <div class="blog-card-icon">🌱</div>
+                    <h3>성격, 바꿀 수 있을까?</h3>
+                    <p class="blog-card-desc">성격의 가소성과 자기 발전의 가능성 탐구</p>
+                    <span class="blog-card-link">읽어보기 →</span>
+                </a>
+
+                <a href="/blog/mbti-compatibility.html" class="blog-card">
+                    <div class="blog-card-icon">💕</div>
+                    <h3>MBTI 궁합 분석</h3>
+                    <p class="blog-card-desc">우리는 잘 맞을까? MBTI로 보는 케미스트리</p>
+                    <span class="blog-card-link">읽어보기 →</span>
+                </a>
+
+                <a href="/blog/psychology-tests.html" class="blog-card">
+                    <div class="blog-card-icon">📋</div>
+                    <h3>심리테스트 종류 총정리</h3>
+                    <p class="blog-card-desc">MBTI, 에니어그램, 빅파이브... 뭐가 다를까?</p>
+                    <span class="blog-card-link">읽어보기 →</span>
+                </a>
+
+                <a href="/blog/personality-science.html" class="blog-card">
+                    <div class="blog-card-icon">🧬</div>
+                    <h3>성격 심리학 기초</h3>
+                    <p class="blog-card-desc">성격은 어떻게 형성될까? 과학적 배경 탐구</p>
+                    <span class="blog-card-link">읽어보기 →</span>
                 </a>
             </div>
         </div>
 
         <!-- 푸터 -->
         <div class="footer">
-            <p style="color: white;">© 2025 Moahub. All rights reserved.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.8rem;">
-                <a href="/about.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">소개</a> · 
-                <a href="/faq.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">FAQ</a> · 
-                <a href="/privacy.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">개인정보처리방침</a> · 
-                <a href="/terms.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">이용약관</a>
+            <p>© 2025 Moahub. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="/about.html">소개</a> ·
+                <a href="/faq.html">FAQ</a> ·
+                <a href="/privacy.html">개인정보처리방침</a> ·
+                <a href="/terms.html">이용약관</a>
             </p>
         </div>
     </div>
