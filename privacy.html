@@ -189,14 +189,38 @@
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <a href="/">홈</a>
-        <a href="/blog.html">블로그</a>
-        <a href="/about.html">소개</a>
-        <a href="/faq.html">FAQ</a>
-        <a href="/privacy.html">개인정보</a>
-        <a href="/terms.html">이용약관</a>
-    </nav>
+    <a href="/" class="home-btn">🏠 홈으로</a>
+
+    <style>
+        .home-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #666;
+            text-decoration: none;
+            padding: 0.7rem 1.2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .home-btn:hover {
+            background: white;
+            color: #ff6b9d;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.25);
+        }
+        @media (max-width: 768px) {
+            body { padding-top: 70px !important; }
+            .home-btn { top: 12px; left: 12px; padding: 0.5rem 1rem; font-size: 0.85rem; }
+        }
+    </style>
 
     <div class="container">
         <div class="header">
