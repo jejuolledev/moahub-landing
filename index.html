@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,11 +20,12 @@
         :root {
             --primary-color: #ff6b9d;
             --secondary-color: #667eea;
-            --bg-gradient: linear-gradient(135deg, #fff1eb 0%, #ace0f9 100%);
+            /* Brighter, more lively background gradient */
+            --bg-gradient: linear-gradient(135deg, #fff0f5 0%, #e0c3fc 50%, #8ec5fc 100%);
             --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
             --card-hover-shadow: 0 15px 35px rgba(255, 107, 157, 0.2);
             --text-main: #333;
-            --text-sub: #666;
+            --text-sub: #555;
             --radius-lg: 30px;
             --radius-md: 20px;
             --radius-sm: 15px;
@@ -42,20 +44,24 @@
             min-height: 100vh;
             color: var(--text-main);
             overflow-x: hidden;
-            padding-bottom: safe-area-inset-bottom; 
+            padding-bottom: safe-area-inset-bottom;
         }
 
-        /* Cute Background Patterns */
+        /* Cute Background Patterns - Brighter */
         body::before {
             content: '';
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: 
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
                 radial-gradient(#ff9a9e 2px, transparent 2px),
-                radial-gradient(#a18cd1 2px, transparent 2px);
-            background-size: 50px 50px;
-            background-position: 0 0, 25px 25px;
-            opacity: 0.15;
+                radial-gradient(#a18cd1 2px, transparent 2px),
+                radial-gradient(white 2px, transparent 2px);
+            background-size: 50px 50px, 40px 40px, 30px 30px;
+            background-position: 0 0, 25px 25px, 10px 10px;
+            opacity: 0.2;
             z-index: -1;
             pointer-events: none;
         }
@@ -68,58 +74,59 @@
             padding: 0 20px;
         }
 
-        /* Navigation - Mobile Optimized (Horizontal Scroll) */
+        /* Navigation - Mobile Optimized (Wrap instead of scroll) */
         .nav {
             display: flex;
-            gap: 10px;
-            padding: 15px 20px;
-            overflow-x: auto;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE/Edge */
+            flex-wrap: wrap;
+            /* Allow wrapping */
+            justify-content: center;
+            /* Center items */
+            gap: 8px;
+            padding: 15px 10px;
             margin-bottom: 20px;
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
+            /* Slightly more opaque */
             backdrop-filter: blur(10px);
-            mask-image: linear-gradient(to right, transparent, black 10px, black 90%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 10px, black 90%, transparent);
-        }
-
-        .nav::-webkit-scrollbar {
-            display: none;
+            border-radius: 0 0 20px 20px;
         }
 
         .nav a {
             flex: 0 0 auto;
             color: var(--text-sub);
             text-decoration: none;
-            padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.9);
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            /* Slightly stronger shadow */
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 1px solid rgba(255, 255, 255, 0.8);
         }
 
-        .nav a:active, .nav a:hover {
+        .nav a:active,
+        .nav a:hover {
             transform: scale(0.95);
             background: white;
             color: var(--primary-color);
-            box-shadow: 0 4px 12px rgba(255, 107, 157, 0.2);
+            box-shadow: 0 4px 12px rgba(255, 107, 157, 0.25);
         }
 
-        /* Cards & Sections */
-        .main-section, .blog-section {
-            background: rgba(255, 255, 255, 0.7);
+        /* Cards & Sections - Brighter Backgrounds */
+        .main-section,
+        .blog-section {
+            background: rgba(255, 255, 255, 0.85);
+            /* Whiter background for clearer text */
             border-radius: var(--radius-lg);
             padding: 25px 20px;
             margin-bottom: 30px;
             box-shadow: var(--card-shadow);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            border: 2px solid rgba(255, 255, 255, 0.8);
         }
 
         /* Header Area */
@@ -130,19 +137,28 @@
         }
 
         .logo {
-            font-size: 4rem;
-            margin-bottom: 0px;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 10px;
             display: inline-block;
             animation: float 3s ease-in-out infinite;
+            object-fit: contain;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(-5deg); }
-            50% { transform: translateY(-10px) rotate(5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(5deg);
+            }
         }
 
         h1 {
-            font-family: 'Jua', sans-serif; /* Cute rounded font */
+            font-family: 'Jua', sans-serif;
             color: var(--text-main);
             font-size: 2.2rem;
             margin-bottom: 5px;
@@ -166,7 +182,7 @@
         /* Site Cards Grid */
         .site-list {
             display: grid;
-            grid-template-columns: 1fr; /* Mobile First: 1 column */
+            grid-template-columns: 1fr;
             gap: 15px;
         }
 
@@ -183,14 +199,31 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            border: 2px solid transparent;
+            border: 2px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            /* Added default subtle shadow */
         }
 
-        /* Gradient Borders / Accents via CSS variables or specific classes */
-        .site-card.blue-gradient { background: linear-gradient(145deg, #e0c3fc 0%, #8ec5fc 100%); color: white; }
-        .site-card.pink-gradient { background: linear-gradient(145deg, #ff9a9e 0%, #fad0c4 100%); color: white; }
-        .site-card.purple-gradient { background: linear-gradient(145deg, #a18cd1 0%, #fbc2eb 100%); color: white; }
-        .site-card.ai-gradient { background: linear-gradient(145deg, #84fab0 0%, #8fd3f4 100%); color: white; }
+        /* Gradient Borders / Accents */
+        .site-card.blue-gradient {
+            background: linear-gradient(180deg, white 0%, #f0f7ff 100%);
+            border-color: #8ec5fc;
+        }
+
+        .site-card.pink-gradient {
+            background: linear-gradient(180deg, white 0%, #fff0f5 100%);
+            border-color: #ff9a9e;
+        }
+
+        .site-card.purple-gradient {
+            background: linear-gradient(180deg, white 0%, #f3f0ff 100%);
+            border-color: #a18cd1;
+        }
+
+        .site-card.ai-gradient {
+            background: linear-gradient(180deg, white 0%, #f0fffa 100%);
+            border-color: #84fab0;
+        }
 
         .site-card:active {
             transform: scale(0.96);
@@ -199,14 +232,15 @@
         .site-icon {
             font-size: 3rem;
             margin-bottom: 10px;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
         }
 
         .site-card h3 {
             font-family: 'Jua', sans-serif;
             font-size: 1.4rem;
             margin-bottom: 8px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-shadow: none;
+            color: #444;
         }
 
         .site-card p {
@@ -214,17 +248,19 @@
             line-height: 1.5;
             opacity: 0.95;
             font-weight: 500;
+            color: #666;
         }
 
         .site-card .badge {
             margin-top: 12px;
-            background: white;
-            color: var(--primary-color);
+            background: var(--primary-color);
+            color: white;
+            /* Contrast fix */
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 800;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         /* Blog Section */
@@ -255,16 +291,17 @@
             border-radius: var(--radius-md);
             text-decoration: none;
             display: flex;
-            align-items: center; /* Row layout on mobile for cleaner list look? Or block? Let's keep block but cute */
+            align-items: center;
             gap: 15px;
             transition: transform 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            border: 2px solid white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.8);
         }
 
         .blog-card:hover {
             border-color: #ffc3a0;
             transform: translateY(-3px);
+            background: #fffcfc;
         }
 
         .blog-card-icon {
@@ -277,10 +314,14 @@
             justify-content: center;
             border-radius: 50%;
             flex-shrink: 0;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+            /* Inner shadow for cuteness */
         }
 
         .blog-card-content {
             flex-grow: 1;
+            min-width: 0;
+            /* Important for flex child truncation */
         }
 
         .blog-card h3 {
@@ -294,14 +335,16 @@
             font-size: 0.85rem;
             color: var(--text-sub);
             display: -webkit-box;
-            -webkit-line-clamp: 2;
-            line-clamp: 2;
+            -webkit-line-clamp: 3;
+            /* Changed to 3 lines */
+            line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            line-height: 1.4;
         }
 
         .blog-card-link {
-            display: none; /* Hide 'Read more' text on mobile, card is clickable */
+            display: none;
         }
 
         /* Scroll Indicator */
@@ -321,12 +364,36 @@
             box-shadow: 0 5px 15px rgba(255, 107, 157, 0.3);
             cursor: pointer;
             animation: bounce 2s infinite;
+            font-size: 1.5rem;
+            /* Ensure arrow size */
+            color: var(--primary-color);
+            /* Ensure arrow color */
+            font-weight: bold;
         }
-        
+
+        /* Explicitly adding the arrow content here just in case, though ::before is better for animation */
+        .scroll-arrow::after {
+            content: '↓';
+            display: block;
+        }
+
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
         }
 
         /* Footer */
@@ -335,11 +402,11 @@
             padding: 30px 20px;
             font-size: 0.8rem;
             color: #888;
-            background: rgba(255,255,255,0.4);
+            background: rgba(255, 255, 255, 0.6);
             border-radius: var(--radius-lg) var(--radius-lg) 0 0;
             backdrop-filter: blur(5px);
         }
-        
+
         .footer a {
             color: var(--text-sub);
             margin: 0 5px;
@@ -353,24 +420,26 @@
             }
 
             .nav {
-                justify-content: center;
-                overflow: visible;
-                background: transparent;
-                mask-image: none;
-                -webkit-mask-image: none;
-                backdrop-filter: none;
+                max-width: fit-content;
+                margin: 0 auto 30px;
+                background: rgba(255, 255, 255, 0.6);
+                border-radius: 50px;
+                padding: 10px 30px;
             }
 
             .site-list {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .main-section, .blog-section {
+            .main-section,
+            .blog-section {
                 padding: 40px;
             }
-            
-            h1 { font-size: 3rem; }
-            
+
+            h1 {
+                font-size: 3rem;
+            }
+
             .site-card {
                 padding: 40px 30px;
             }
@@ -395,7 +464,7 @@
             .blog-card-icon {
                 margin-bottom: 15px;
             }
-            
+
             .blog-card-link {
                 display: inline-block;
                 margin-top: 15px;
@@ -412,6 +481,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav class="nav">
         <a href="/">홈</a>
@@ -426,7 +496,7 @@
         <!-- 메인 테스트 섹션 -->
         <div class="main-section">
             <div class="header">
-                <div class="logo">✨</div>
+                <img src="/cute-logo.png" class="logo" alt="logo">
                 <h1><span>모아허브</span></h1>
                 <p class="subtitle">나를 알아가는 재미있는 테스트 모음</p>
             </div>
@@ -463,7 +533,8 @@
 
         <!-- 스크롤 인디케이터 -->
         <div class="scroll-indicator">
-            <div class="scroll-arrow" onclick="document.querySelector('.blog-section').scrollIntoView({behavior: 'smooth'})"></div>
+            <div class="scroll-arrow"
+                onclick="document.querySelector('.blog-section').scrollIntoView({behavior: 'smooth'})"></div>
             <p class="scroll-text">더 많은 콘텐츠 보기</p>
         </div>
 
@@ -571,4 +642,5 @@
         </div>
     </div>
 </body>
+
 </html>
