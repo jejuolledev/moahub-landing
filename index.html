@@ -117,16 +117,17 @@
         }
 
         /* Cards & Sections - Brighter Backgrounds */
+        /* Cards & Sections - Brighter Backgrounds */
         .main-section,
         .blog-section {
-            background: rgba(255, 255, 255, 0.85);
-            /* Whiter background for clearer text */
+            /* Fresh, slightly pinkish/warm white for cuteness */
+            background: rgba(255, 250, 252, 0.9);
             border-radius: var(--radius-lg);
             padding: 25px 20px;
             margin-bottom: 30px;
             box-shadow: var(--card-shadow);
             backdrop-filter: blur(8px);
-            border: 2px solid rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.7);
         }
 
         /* Header Area */
@@ -143,6 +144,8 @@
             display: inline-block;
             animation: float 3s ease-in-out infinite;
             object-fit: contain;
+            /* Multiply blend mode to hide white background of the image */
+            mix-blend-mode: multiply;
         }
 
         @keyframes float {
