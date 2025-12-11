@@ -44,33 +44,35 @@
             z-index: 0;
         }
 
-        .nav {
-            max-width: 1200px;
-            margin: 0 auto 2rem;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .nav a {
-            display: inline-block;
+        /* 심플한 홈 버튼 */
+        .home-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             color: #666;
             text-decoration: none;
-            padding: 0.6rem 1.2rem;
-            margin: 0.3rem;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 25px;
+            padding: 0.7rem 1.2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50px;
             transition: all 0.3s;
             font-size: 0.9rem;
             font-weight: 500;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .nav a:hover {
+        .home-btn:hover {
             background: white;
             color: #ff6b9d;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.2);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.25);
+        }
+
+        .home-btn span {
+            font-size: 1.2rem;
         }
 
         .container {
@@ -99,7 +101,7 @@
 
         .header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .header-icon {
@@ -185,6 +187,10 @@
             background: white;
         }
 
+        .blog-card.hidden {
+            display: none;
+        }
+
         .blog-icon {
             font-size: 2.8rem;
             margin-bottom: 1rem;
@@ -242,9 +248,29 @@
             color: #ff6b9d;
         }
 
+        /* 빈 결과 메시지 */
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #888;
+            display: none;
+        }
+
+        .no-results.show {
+            display: block;
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 12px;
+                padding-top: 70px;
+            }
+
+            .home-btn {
+                top: 12px;
+                left: 12px;
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
             }
 
             .blog-grid {
@@ -272,14 +298,9 @@
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <a href="/">홈</a>
-        <a href="/blog.html">블로그</a>
-        <a href="/about.html">소개</a>
-        <a href="/faq.html">FAQ</a>
-        <a href="/privacy.html">개인정보</a>
-        <a href="/terms.html">이용약관</a>
-    </nav>
+    <a href="/" class="home-btn">
+        <span>🏠</span> 홈으로
+    </a>
 
     <div class="container">
         <div class="header">
@@ -289,15 +310,15 @@
         </div>
 
         <div class="category-filter">
-            <button class="category-btn active">전체</button>
-            <button class="category-btn">AI</button>
-            <button class="category-btn">MBTI</button>
-            <button class="category-btn">심리학</button>
-            <button class="category-btn">타로</button>
+            <button class="category-btn active" data-category="all">전체</button>
+            <button class="category-btn" data-category="ai">AI</button>
+            <button class="category-btn" data-category="mbti">MBTI</button>
+            <button class="category-btn" data-category="psychology">심리학</button>
+            <button class="category-btn" data-category="tarot">타로</button>
         </div>
 
         <div class="blog-grid">
-            <a href="/blog/ai-basics.html" class="blog-card">
+            <a href="/blog/ai-basics.html" class="blog-card" data-category="ai">
                 <div class="blog-icon">🤖</div>
                 <h3>AI 시대 생존 가이드</h3>
                 <p>ChatGPT 시대, 뒤처지지 않으려면? AI 기초부터 실전 활용까지 완벽 가이드!</p>
@@ -307,7 +328,7 @@
                 </div>
             </a>
 
-            <a href="/blog/ai-tools-guide.html" class="blog-card">
+            <a href="/blog/ai-tools-guide.html" class="blog-card" data-category="ai">
                 <div class="blog-icon">🛠️</div>
                 <h3>AI 도구 완벽 비교</h3>
                 <p>ChatGPT vs Claude vs Gemini, 어떤 AI가 나한테 맞을까? 2024년 AI 도구 총정리!</p>
@@ -317,7 +338,7 @@
                 </div>
             </a>
 
-            <a href="/blog/chatgpt-tips.html" class="blog-card">
+            <a href="/blog/chatgpt-tips.html" class="blog-card" data-category="ai">
                 <div class="blog-icon">💬</div>
                 <h3>ChatGPT 200% 활용법</h3>
                 <p>프롬프트 잘 쓰는 법부터 고급 팁까지! ChatGPT 실전 노하우 대공개</p>
@@ -327,7 +348,7 @@
                 </div>
             </a>
 
-            <a href="/blog/tarot-guide.html" class="blog-card">
+            <a href="/blog/tarot-guide.html" class="blog-card" data-category="tarot">
                 <div class="blog-icon">🔮</div>
                 <h3>타로 카드 입문 가이드</h3>
                 <p>타로의 역사부터 78장 카드의 의미까지, 신비로운 타로의 세계 탐험!</p>
@@ -337,7 +358,7 @@
                 </div>
             </a>
 
-            <a href="/blog/mbti-guide.html" class="blog-card">
+            <a href="/blog/mbti-guide.html" class="blog-card" data-category="mbti">
                 <div class="blog-icon">🧠</div>
                 <h3>MBTI 완벽 가이드</h3>
                 <p>MBTI의 모든 것! 기본 개념부터 실전 활용까지 상세히 알아봐요</p>
@@ -347,7 +368,7 @@
                 </div>
             </a>
 
-            <a href="/blog/psychology-tests.html" class="blog-card">
+            <a href="/blog/psychology-tests.html" class="blog-card" data-category="psychology">
                 <div class="blog-icon">📋</div>
                 <h3>심리테스트 종류 총정리</h3>
                 <p>MBTI, 에니어그램, 빅파이브... 다양한 심리테스트, 뭐가 다를까?</p>
@@ -357,7 +378,7 @@
                 </div>
             </a>
 
-            <a href="/blog/mbti-types.html" class="blog-card">
+            <a href="/blog/mbti-types.html" class="blog-card" data-category="mbti">
                 <div class="blog-icon">🔍</div>
                 <h3>16가지 MBTI 유형 분석</h3>
                 <p>INTJ부터 ESFP까지! 각 유형의 특징, 강점, 약점을 완전 정복</p>
@@ -367,7 +388,7 @@
                 </div>
             </a>
 
-            <a href="/blog/personality-science.html" class="blog-card">
+            <a href="/blog/personality-science.html" class="blog-card" data-category="psychology">
                 <div class="blog-icon">🧬</div>
                 <h3>성격 심리학 기초</h3>
                 <p>성격은 어떻게 형성될까? 성격 심리학의 과학적 배경 탐구</p>
@@ -377,7 +398,7 @@
                 </div>
             </a>
 
-            <a href="/blog/relationship-personality.html" class="blog-card">
+            <a href="/blog/relationship-personality.html" class="blog-card" data-category="psychology">
                 <div class="blog-icon">💑</div>
                 <h3>연애와 성격의 관계</h3>
                 <p>내 성격이 연애 스타일에 미치는 영향은? 건강한 관계 만들기</p>
@@ -387,7 +408,7 @@
                 </div>
             </a>
 
-            <a href="/blog/mbti-career.html" class="blog-card">
+            <a href="/blog/mbti-career.html" class="blog-card" data-category="mbti">
                 <div class="blog-icon">💼</div>
                 <h3>MBTI별 추천 직업</h3>
                 <p>내 성격에 딱 맞는 커리어는? MBTI 유형별 직업 추천!</p>
@@ -397,7 +418,7 @@
                 </div>
             </a>
 
-            <a href="/blog/personality-development.html" class="blog-card">
+            <a href="/blog/personality-development.html" class="blog-card" data-category="psychology">
                 <div class="blog-icon">🌱</div>
                 <h3>성격, 바꿀 수 있을까?</h3>
                 <p>성격의 가소성과 변화 가능성에 대한 심리학적 관점</p>
@@ -407,7 +428,7 @@
                 </div>
             </a>
 
-            <a href="/blog/mbti-compatibility.html" class="blog-card">
+            <a href="/blog/mbti-compatibility.html" class="blog-card" data-category="mbti">
                 <div class="blog-icon">💕</div>
                 <h3>MBTI 궁합 분석</h3>
                 <p>우리는 잘 맞을까? MBTI 유형별 궁합과 케미스트리!</p>
@@ -417,7 +438,7 @@
                 </div>
             </a>
 
-            <a href="/blog/psychological-test-history.html" class="blog-card">
+            <a href="/blog/psychological-test-history.html" class="blog-card" data-category="psychology">
                 <div class="blog-icon">📜</div>
                 <h3>심리테스트의 역사</h3>
                 <p>고대부터 현대까지, 심리테스트가 발전해온 흥미로운 여정!</p>
@@ -427,7 +448,7 @@
                 </div>
             </a>
 
-            <a href="/blog/personality-test-accuracy.html" class="blog-card">
+            <a href="/blog/personality-test-accuracy.html" class="blog-card" data-category="psychology">
                 <div class="blog-icon">✅</div>
                 <h3>심리테스트 정확도 분석</h3>
                 <p>신뢰할 수 있는 심리테스트를 고르는 과학적 기준!</p>
@@ -438,15 +459,48 @@
             </a>
         </div>
 
+        <div class="no-results">
+            <p>해당 카테고리의 글이 없습니다 😢</p>
+        </div>
+
         <div class="footer">
             <p>© 2025 Moahub. All rights reserved.</p>
-            <p style="margin-top: 0.5rem;">
-                <a href="/about.html">소개</a> ·
-                <a href="/faq.html">FAQ</a> ·
-                <a href="/privacy.html">개인정보처리방침</a> ·
-                <a href="/terms.html">이용약관</a>
-            </p>
         </div>
     </div>
+
+    <script>
+        // 카테고리 필터 기능
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const blogCards = document.querySelectorAll('.blog-card');
+        const noResults = document.querySelector('.no-results');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 버튼 active 상태 변경
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const category = btn.dataset.category;
+                let visibleCount = 0;
+
+                // 카드 필터링
+                blogCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                // 결과 없음 메시지
+                if (visibleCount === 0) {
+                    noResults.classList.add('show');
+                } else {
+                    noResults.classList.remove('show');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
