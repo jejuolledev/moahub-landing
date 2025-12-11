@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,22 +14,41 @@
     <meta name="google-adsense-account" content="ca-pub-1642749702806306">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Jua&display=swap');
+
+        :root {
+            --primary-color: #ff6b9d;
+            --secondary-color: #667eea;
+            /* Brighter, more lively background gradient */
+            --bg-gradient: linear-gradient(135deg, #fff0f5 0%, #e0c3fc 50%, #8ec5fc 100%);
+            --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --card-hover-shadow: 0 15px 35px rgba(255, 107, 157, 0.2);
+            --text-main: #333;
+            --text-sub: #555;
+            --radius-lg: 30px;
+            --radius-md: 20px;
+            --radius-sm: 15px;
+        }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ffecd2 100%);
+            background: var(--bg-gradient);
             min-height: 100vh;
-            padding: 20px;
+            color: var(--text-main);
+            overflow-x: hidden;
+            padding-bottom: safe-area-inset-bottom;
+            padding-top: 70px;
+            /* Space for fixed nav/home btn */
         }
 
-        /* 배경 장식 */
+        /* Cute Background Patterns - Brighter */
         body::before {
             content: '';
             position: fixed;
@@ -36,155 +56,166 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background:
-                radial-gradient(circle at 20% 20%, rgba(255, 182, 193, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(173, 216, 230, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(255, 218, 185, 0.3) 0%, transparent 50%);
+            background-image:
+                radial-gradient(#ff9a9e 2px, transparent 2px),
+                radial-gradient(#a18cd1 2px, transparent 2px),
+                radial-gradient(white 2px, transparent 2px);
+            background-size: 50px 50px, 40px 40px, 30px 30px;
+            background-position: 0 0, 25px 25px, 10px 10px;
+            opacity: 0.2;
+            z-index: -1;
             pointer-events: none;
-            z-index: 0;
         }
 
-        /* 심플한 홈 버튼 */
+        /* Navigation / Home Button */
         .home-btn {
             position: fixed;
-            top: 20px;
+            top: 15px;
             left: 20px;
             z-index: 100;
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            color: #666;
+            color: var(--text-sub);
             text-decoration: none;
-            padding: 0.7rem 1.2rem;
-            background: rgba(255, 255, 255, 0.95);
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.85);
             border-radius: 50px;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             font-size: 0.9rem;
             font-weight: 500;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
         }
 
         .home-btn:hover {
             background: white;
-            color: #ff6b9d;
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.25);
-        }
-
-        .home-btn span {
-            font-size: 1.2rem;
+            color: var(--primary-color);
+            transform: scale(0.95);
+            box-shadow: 0 4px 12px rgba(255, 107, 157, 0.25);
         }
 
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 3rem 2rem;
-            border-radius: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            /* Mobile first padding */
+            /* Fresh, slightly pinkish/warm white for cuteness */
+            background: rgba(255, 250, 252, 0.9);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--card-shadow);
             position: relative;
             z-index: 1;
-            backdrop-filter: blur(10px);
-            animation: floatIn 0.8s ease-out;
-        }
-
-        @keyframes floatIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            backdrop-filter: blur(8px);
+            border: 2px solid rgba(255, 255, 255, 0.7);
         }
 
         .header {
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 30px;
         }
 
         .header-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            display: inline-block;
             animation: wiggle 3s ease-in-out infinite;
         }
 
         @keyframes wiggle {
-            0%, 100% { transform: rotate(-5deg); }
-            50% { transform: rotate(5deg); }
+
+            0%,
+            100% {
+                transform: rotate(-5deg);
+            }
+
+            50% {
+                transform: rotate(5deg);
+            }
         }
 
         h1 {
-            color: #333;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+            font-family: 'Jua', sans-serif;
+            color: var(--text-main);
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
         }
 
         h1 span {
-            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            background: linear-gradient(120deg, #ff9a9e 0%, #fecfef 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 85%;
         }
 
         .subtitle {
-            color: #888;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            color: var(--text-sub);
+            font-weight: 500;
+            opacity: 0.8;
         }
 
-        /* 카테고리 필터 */
+        /* Filter Buttons */
         .category-filter {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-bottom: 2.5rem;
+            gap: 8px;
+            margin-bottom: 30px;
         }
 
         .category-btn {
-            padding: 0.6rem 1.5rem;
-            border: none;
-            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-            border-radius: 25px;
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            background: white;
+            border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 500;
-            color: #666;
+            color: var(--text-sub);
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             font-family: inherit;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
         }
 
-        .category-btn:hover, .category-btn.active {
-            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+        .category-btn:hover,
+        .category-btn.active {
+            background: var(--primary-color);
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.3);
+            transform: scale(0.95);
+            box-shadow: 0 4px 10px rgba(255, 107, 157, 0.3);
+            border-color: transparent;
         }
 
+        /* Blog Grid */
         .blog-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: 1fr;
+            /* Mobile first */
+            gap: 15px;
         }
 
         .blog-card {
-            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-            padding: 2rem;
-            border-radius: 25px;
+            background: white;
+            padding: 25px;
+            border-radius: var(--radius-md);
             text-decoration: none;
             color: inherit;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
         }
 
         .blog-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(255, 107, 157, 0.15);
-            border-color: #ff6b9d;
-            background: white;
+            transform: translateY(-5px);
+            box-shadow: var(--card-hover-shadow);
+            border-color: #ffc3a0;
+            background: #fffcfc;
         }
 
         .blog-card.hidden {
@@ -192,111 +223,87 @@
         }
 
         .blog-icon {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             display: inline-block;
+            background: #fff5f7;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 50%;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
         .blog-card h3 {
-            color: #ff6b9d;
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
+            font-family: 'Jua', sans-serif;
+            color: var(--text-main);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
         }
 
         .blog-card p {
-            color: #666;
+            color: var(--text-sub);
             font-size: 0.95rem;
-            line-height: 1.7;
+            line-height: 1.6;
+            margin-bottom: auto;
+            /* Push meta to bottom */
+            flex-grow: 1;
         }
 
         .blog-meta {
-            margin-top: 1.2rem;
-            padding-top: 1rem;
-            border-top: 1px solid #eee;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #eee;
             font-size: 0.85rem;
             color: #999;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 8px;
         }
 
         .blog-tag {
             display: inline-block;
-            background: rgba(255, 107, 157, 0.1);
-            color: #ff6b9d;
-            padding: 3px 10px;
+            background: #fff0f5;
+            color: var(--primary-color);
+            padding: 4px 12px;
             border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 500;
+            font-size: 0.8rem;
+            font-weight: 700;
         }
 
         .footer {
             text-align: center;
-            margin-top: 3rem;
+            margin-top: 2rem;
             color: #888;
             font-size: 0.85rem;
         }
 
-        .footer a {
-            color: #888;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer a:hover {
-            color: #ff6b9d;
-        }
-
-        /* 빈 결과 메시지 */
-        .no-results {
-            text-align: center;
-            padding: 3rem;
-            color: #888;
-            display: none;
-        }
-
-        .no-results.show {
-            display: block;
-        }
-
-        @media (max-width: 768px) {
+        /* Desktop */
+        @media (min-width: 768px) {
             body {
-                padding: 12px;
-                padding-top: 70px;
-            }
-
-            .home-btn {
-                top: 12px;
-                left: 12px;
-                padding: 0.5rem 1rem;
-                font-size: 0.85rem;
-            }
-
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
-
-            h1 {
-                font-size: 2rem;
+                padding-top: 20px;
+                /* Reset padding */
             }
 
             .container {
-                padding: 2rem 1.5rem;
-                border-radius: 30px;
+                padding: 40px;
+                margin-top: 60px;
+                /* Space for home button if needed */
             }
 
-            .category-filter {
-                gap: 0.5rem;
+            .blog-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 25px;
             }
 
-            .category-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
+            h1 {
+                font-size: 3rem;
             }
         }
     </style>
 </head>
+
 <body>
     <a href="/" class="home-btn">
         <span>🏠</span> 홈으로
@@ -305,7 +312,7 @@
     <div class="container">
         <div class="header">
             <div class="header-icon">📖</div>
-            <h1><span>Moahub</span> 블로그</h1>
+            <h1><span>모아허브</span> 블로그</h1>
             <p class="subtitle">심리학, AI, 자기계발에 대한 유익한 이야기</p>
         </div>
 
@@ -503,4 +510,5 @@
         });
     </script>
 </body>
+
 </html>
