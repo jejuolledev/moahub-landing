@@ -635,6 +635,11 @@ h1 span {
     }
 }
 
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
 /* =========================================
    Small Mobile Optimization (max-width: 480px)
    Targeting iPhone 12/13/14/Mini & Androids
@@ -651,9 +656,11 @@ h1 span {
     }
 
     .site-card {
-        padding: 12px 8px;
-        /* Compact padding */
-        min-height: 130px;
+        padding: 14px 10px;
+        /* Adjusted padding */
+        min-height: 150px;
+        aspect-ratio: auto;
+        /* Remove fixed ratio constraint */
     }
 
     .site-icon {
@@ -664,11 +671,21 @@ h1 span {
     .site-card h3 {
         font-size: 0.95rem;
         /* Smaller card title */
+        -webkit-line-clamp: 2;
+        /* Ensure limit */
     }
 
     .site-card p {
-        font-size: 0.7rem;
-        /* Smaller card desc */
+        font-size: 0.75rem;
+        /* Slightly larger for readability */
+        -webkit-line-clamp: 3;
+        /* Allow 3 lines */
+        line-height: 1.25;
+    }
+
+    .site-card p br {
+        display: none;
+        /* Hide breaks to save vertical space */
     }
 
     .blog-card h3 {
