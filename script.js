@@ -37,16 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
             // Update UI
             if (isFlipped) {
                 // Now showing Games (Back Face)
-                // Button should offer to go back to Tests
+                // Button should offer to go back to Tests (Moa Hub)
                 btnIcon.textContent = '🧠';
-                btnText.textContent = '테스트 모음';
+                btnText.textContent = '모아 허브';
                 modeBtn.setAttribute('aria-label', '테스트 모드로 전환');
                 modeBtn.setAttribute('aria-pressed', 'true');
             } else {
                 // Now showing Tests (Front Face)
-                // Button should offer to go to Games
+                // Button should offer to go to Games (Moa Game)
                 btnIcon.textContent = '🎮';
-                btnText.textContent = '게임 모음';
+                btnText.textContent = '모아 게임';
                 modeBtn.setAttribute('aria-label', '게임 모드로 전환');
                 modeBtn.setAttribute('aria-pressed', 'false');
             }
