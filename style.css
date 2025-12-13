@@ -629,11 +629,50 @@ h1 span {
     }
 
     /* Reduce section padding to give more space to content */
-
-    /* Reduce section padding to give more space to content */
     .main-section,
     .blog-section {
         padding: 20px 15px;
+    }
+}
+
+/* =========================================
+   Small Mobile Optimization (max-width: 480px)
+   Targeting iPhone 12/13/14/Mini & Androids
+   ========================================= */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+        /* Tighter container */
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        /* Smaller Main Title */
+    }
+
+    .site-card {
+        padding: 12px 8px;
+        /* Compact padding */
+        min-height: 130px;
+    }
+
+    .site-icon {
+        font-size: 2rem;
+        margin-bottom: 6px;
+    }
+
+    .site-card h3 {
+        font-size: 0.95rem;
+        /* Smaller card title */
+    }
+
+    .site-card p {
+        font-size: 0.7rem;
+        /* Smaller card desc */
+    }
+
+    .blog-card h3 {
+        font-size: 1rem;
     }
 }
 
