@@ -645,22 +645,33 @@ h1 span {
 .mode-toggle-area {
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 10;
+    /* Ensure it's above card content */
 }
 
 .mode-btn {
     background: white;
     border: 2px solid var(--primary-color);
-    padding: 8px 16px;
-    border-radius: 20px;
+    padding: 12px 24px;
+    /* Larger touch target */
+    border-radius: 30px;
+    /* Rounder */
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 10px;
     font-weight: 700;
+    font-size: 1.1rem;
+    /* Larger text */
     color: var(--primary-color);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: all 0.2s ease;
+    /* Ensure minimum touch target size */
+    min-height: 50px;
+    min-width: 140px;
+    justify-content: center;
 }
 
 .mode-btn:hover {
