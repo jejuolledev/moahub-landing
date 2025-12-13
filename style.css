@@ -629,8 +629,136 @@ h1 span {
     }
 
     /* Reduce section padding to give more space to content */
+
+    /* Reduce section padding to give more space to content */
     .main-section,
     .blog-section {
         padding: 20px 15px;
+    }
+}
+
+/* =========================================
+   3D Flip & Game Mode Styles
+   ========================================= */
+
+/* Toggle Button Area */
+.mode-toggle-area {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+}
+
+.mode-btn {
+    background: white;
+    border: 2px solid var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    color: var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+.mode-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 107, 157, 0.2);
+}
+
+.mode-btn:active {
+    transform: scale(0.95);
+}
+
+.btn-icon {
+    font-size: 1.2rem;
+}
+
+/* 3D Scene */
+.scene {
+    perspective: 1500px;
+    margin-bottom: 30px;
+}
+
+.card-3d {
+    width: 100%;
+    position: relative;
+    /* Height will be determined by content if using JS or specific tricks, 
+       but for absolute faces, we need a height. 
+       However, to make it responsive height, we can't use absolute on both faces easily. 
+       
+       Solution: 
+       Make Front Face relative (dictates height) and Back Face absolute?
+       Or Grid overlap.
+    */
+    display: grid;
+    grid-template-areas: "card";
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Flips the card */
+.card-3d.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    grid-area: card;
+    width: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    /* Ensure styles from .main-section are respected */
+}
+
+/* Front Face (Default) */
+.face-front {
+    transform: rotateY(0deg);
+    z-index: 2;
+}
+
+/* Back Face (Games) */
+.face-back {
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+/* Prevent interaction on back face when not flipped (optional safety) */
+.card-3d:not(.flipped) .face-back {
+    pointer-events: none;
+}
+
+.card-3d.flipped .face-front {
+    pointer-events: none;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .card-3d {
+        transition: none;
+    }
+
+    .face-back {
+        opacity: 0;
+        transition: opacity 0.3s;
+        /* Disable Transform for back in reduced motion if desired, or just use fade */
+        transform: rotateY(0deg);
+        display: none;
+    }
+
+    .card-3d.flipped {
+        transform: none;
+    }
+
+    .card-3d.flipped .face-back {
+        opacity: 1;
+        display: block;
+        transform: none;
+    }
+
+    .card-3d.flipped .face-front {
+        opacity: 0;
+        display: none;
     }
 }

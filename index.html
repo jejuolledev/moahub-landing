@@ -28,41 +28,80 @@
     </nav>
 
     <div class="container">
-        <!-- 메인 테스트 섹션 -->
-        <div class="main-section">
-            <div class="header">
-                <img src="/cute-logo.png" class="logo" alt="logo">
-                <h1><span>모아허브</span></h1>
-                <p class="subtitle">나를 알아가는 재미있는 테스트 모음</p>
+        <!-- 3D Scene Wrapper -->
+        <div class="scene">
+            <!-- Mode Toggle Button (Absolute or Flex placement) -->
+            <div class="mode-toggle-area">
+                <button id="mode-toggle-btn" class="mode-btn" aria-label="게임 모드로 전환" aria-pressed="false">
+                    <span class="btn-icon">🎮</span>
+                    <span class="btn-text">게임 모음</span>
+                </button>
             </div>
 
-            <div class="site-list">
-                <a href="https://tarot.moahub.co.kr" class="site-card purple-gradient">
-                    <div class="site-icon">🔮</div>
-                    <h3>오늘의 타로</h3>
-                    <p>신비로운 타로 카드로<br>오늘의 운세 확인하기</p>
-                </a>
+            <div class="card-3d">
+                <!-- FRONT: Test Collection -->
+                <div class="card-face face-front main-section">
+                    <div class="header">
+                        <img src="/cute-logo.png" class="logo" alt="logo">
+                        <h1><span>모아허브</span></h1>
+                        <p class="subtitle">나를 알아가는 재미있는 테스트 모음</p>
+                    </div>
 
-                <a href="https://ai-level-test.moahub.co.kr" class="site-card ai-gradient">
-                    <div class="site-icon">🤖</div>
-                    <h3>AI 레벨 테스트</h3>
-                    <p>ChatGPT 시대, 나는 어디쯤?<br>AI 활용 능력 체크!</p>
-                    <span class="badge">HOT</span>
-                </a>
+                    <div class="site-list">
+                        <a href="https://tarot.moahub.co.kr" class="site-card purple-gradient">
+                            <div class="site-icon">🔮</div>
+                            <h3>오늘의 타로</h3>
+                            <p>신비로운 타로 카드로<br>오늘의 운세 확인하기</p>
+                        </a>
 
-                <a href="https://mbti.moahub.co.kr" class="site-card blue-gradient">
-                    <div class="site-icon">🧠</div>
-                    <h3>MBTI 성격 테스트</h3>
-                    <p>나의 성격 유형은 뭘까?<br>25가지 질문으로 알아보기</p>
-                    <span class="badge">인기</span>
-                </a>
+                        <a href="https://ai-level-test.moahub.co.kr" class="site-card ai-gradient">
+                            <div class="site-icon">🤖</div>
+                            <h3>AI 레벨 테스트</h3>
+                            <p>ChatGPT 시대, 나는 어디쯤?<br>AI 활용 능력 체크!</p>
+                            <span class="badge">HOT</span>
+                        </a>
 
-                <a href="https://teto.moahub.co.kr" class="site-card pink-gradient">
-                    <div class="site-icon">💕</div>
-                    <h3>테토 vs 애겐 테스트</h3>
-                    <p>나의 연애 스타일은?<br>연애 주도권 테스트</p>
-                    <span class="badge">NEW</span>
-                </a>
+                        <a href="https://mbti.moahub.co.kr" class="site-card blue-gradient">
+                            <div class="site-icon">🧠</div>
+                            <h3>MBTI 성격 테스트</h3>
+                            <p>나의 성격 유형은 뭘까?<br>25가지 질문으로 알아보기</p>
+                            <span class="badge">인기</span>
+                        </a>
+
+                        <a href="https://teto.moahub.co.kr" class="site-card pink-gradient">
+                            <div class="site-icon">💕</div>
+                            <h3>테토 vs 애겐 테스트</h3>
+                            <p>나의 연애 스타일은?<br>연애 주도권 테스트</p>
+                            <span class="badge">NEW</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- BACK: Game Collection -->
+                <div class="card-face face-back main-section">
+                    <div class="header">
+                        <div class="logo-emoji" style="font-size: 4rem; margin-bottom: 10px;">🎮</div>
+                        <h1><span>게임 모음</span></h1>
+                        <p class="subtitle">심심할 땐 별사탕 줍줍! 힐링 미니게임</p>
+                    </div>
+
+                    <div class="site-list">
+                        <!-- Snake Game Card -->
+                        <a href="https://snake.moahub.co.kr" class="site-card pink-gradient" target="_self">
+                            <div class="site-icon">🐍</div>
+                            <h3>젤리뱀 스네이크</h3>
+                            <p>추억의 스네이크!<br>별사탕 먹고 길~게 성장하세요</p>
+                            <span class="badge">NEW</span>
+                        </a>
+
+                        <!-- Placeholder for future games -->
+                        <div class="site-card coming-soon" style="opacity: 0.6; cursor: default;">
+                            <div class="site-icon">🚧</div>
+                            <h3>준비 중...</h3>
+                            <p>더 재미있는 게임이<br>곧 찾아옵니다!</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
