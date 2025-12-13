@@ -676,3 +676,44 @@ h1 span {
     opacity: 1;
     pointer-events: auto;
 }
+
+/* =========================================================
+   Game Mode(back face) only: layout tighten on desktop
+   ========================================================= */
+
+/* 게임 모드(뒷면) 섹션 자체를 살짝 좁혀서 휑함 제거 */
+.face-back.main-section {
+  max-width: 980px;        /* 900~980 사이 취향 */
+  margin: 0 auto;          /* 가운데 정렬 */
+}
+
+/* 게임 모드 카드 그리드: 카드 수가 적어도 중앙에 모이게 */
+.face-back .site-list {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 280px));
+  justify-content: center; /* 남는 공간 가운데로 */
+  gap: 24px;
+}
+
+/* 태블릿/데스크탑에서 게임 모드만 패딩 조금 줄이기(덜 휑하게) */
+@media (min-width: 768px) {
+  .face-back.main-section {
+    padding: 32px; /* 기존 40px -> 줄임 */
+  }
+
+  /* 게임 모드 카드만 덜 커 보이게 */
+  .face-back .site-card {
+    padding: 28px 22px; /* 기존 40px 30px -> 줄임 */
+  }
+
+  .face-back .header {
+    margin-bottom: 20px; /* 기존 30px -> 줄임 */
+    padding-top: 0;
+  }
+}
+
+/* 1024px 이상에서 전역 .site-list 4열 규칙을 게임 모드에서만 덮어쓰기 */
+@media (min-width: 1024px) {
+  .face-back .site-list {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
+  }
+}
