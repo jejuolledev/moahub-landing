@@ -1,0 +1,13 @@
+# robots.txt for moahub.co.kr
+# 모든 크롤러 허용, AdSense 승인 최적화
+
+User-agent: *
+Allow: /
+
+# Sitemap 위치
+Sitemap: https://moahub.co.kr/sitemap.xml
+
+# 특정 파일/폴더 제외 (필요시)
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /README.md
