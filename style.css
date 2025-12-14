@@ -158,7 +158,7 @@ body::before {
   display: grid;
   grid-template-areas: "card";
   transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), height 0.28s ease;
 }
 
 .card-3d.flipped {
@@ -233,7 +233,33 @@ h1 span {
 .subtitle {
   font-size: 1.1rem;
   color: var(--text-sub);
-  font-weight: 500;
+  
+
+/* =========================================
+   Intro Section (moved below cards)
+   ========================================= */
+.intro-section {
+  margin-top: 22px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 20px;
+  text-align: left;
+  line-height: 1.8;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.intro-section p {
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: #333;
+}
+
+.intro-section .intro-note {
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+}font-weight: 500;
 }
 
 /* =========================================

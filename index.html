@@ -45,26 +45,7 @@
             <h1><span>모아허브</span></h1>
             <p class="subtitle">나를 알아가는 재미있는 테스트 모음</p>
             
-            <!-- 서비스 소개 섹션 (AdSense 콘텐츠 강화) -->
-            <div class="intro-section" style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.9); border-radius: 20px; text-align: left; line-height: 1.8;">
-              <p style="margin-bottom: 15px; font-size: 15px; color: #333;">
-                <strong>모아허브</strong>는 나를 더 잘 이해하고 싶은 사람들을 위한 심리·성격 테스트 플랫폼입니다. 
-                MBTI 성격 유형 분석부터 연애 성향 테스트, AI 시대 역량 체크까지 다양한 자기 발견 도구를 한곳에서 만나보세요.
-              </p>
-              <p style="margin-bottom: 15px; font-size: 15px; color: #333;">
-                모든 테스트는 과학적 근거와 심리학 이론을 바탕으로 설계되었으며, 재미와 정확성을 동시에 추구합니다. 
-                복잡한 회원가입 없이 바로 시작할 수 있고, 결과는 상세한 분석과 함께 제공됩니다.
-              </p>
-              <p style="margin-bottom: 15px; font-size: 15px; color: #333;">
-                심심할 때는 귀여운 미니게임으로 힐링하고, 궁금할 때는 블로그의 심리학·자기계발 콘텐츠를 읽어보세요. 
-                모아허브는 여러분의 자기 이해와 성장을 응원합니다.
-              </p>
-              <p style="font-size: 14px; color: #666; font-style: italic;">
-                💡 <strong>운영 목적:</strong> 심리 테스트와 게임을 통해 자신을 돌아보고, 즐거운 경험을 제공하는 것이 목표입니다. 
-                광고 수익의 일부는 콘텐츠 개선과 새로운 테스트 개발에 재투자됩니다.
-              </p>
             </div>
-          </div>
 
           <div class="site-list">
             <a href="https://tarot.moahub.co.kr" class="site-card purple-gradient">
@@ -93,6 +74,17 @@
               <p>나의 연애 스타일은? 연애 주도권 테스트</p>
               <span class="badge">NEW</span>
             </a>
+          </div>
+        
+          <div class="intro-section">
+            <p><strong>모아허브</strong>는 나를 더 잘 이해하고 싶은 사람들을 위한 심리·성격 테스트 플랫폼입니다. 
+                MBTI 성격 유형 분석부터 연애 성향 테스트, AI 시대 역량 체크까지 다양한 자기 발견 도구를 한곳에서 만나보세요.</p>
+            <p>모든 테스트는 과학적 근거와 심리학 이론을 바탕으로 설계되었으며, 재미와 정확성을 동시에 추구합니다. 
+                복잡한 회원가입 없이 바로 시작할 수 있고, 결과는 상세한 분석과 함께 제공됩니다.</p>
+            <p>심심할 때는 귀여운 미니게임으로 힐링하고, 궁금할 때는 블로그의 심리학·자기계발 콘텐츠를 읽어보세요. 
+                모아허브는 여러분의 자기 이해와 성장을 응원합니다.</p>
+            <p class="intro-note">💡 <strong>운영 목적:</strong> 심리 테스트와 게임을 통해 자신을 돌아보고, 즐거운 경험을 제공하는 것이 목표입니다. 
+                광고 수익의 일부는 콘텐츠 개선과 새로운 테스트 개발에 재투자됩니다.</p>
           </div>
         </div>
 
@@ -262,6 +254,45 @@
     (function () {
       var el = document.getElementById('footer-year');
       if (el) el.textContent = String(new Date().getFullYear());
+    })();
+  </script>
+
+  <!-- ✅ 앞/뒤 전환 시 카드 높이 자동 조절(모아 게임 공백 크게 남는 문제 해결) -->
+  <script>
+    (function () {
+      function setupAutoHeight() {
+        var card = document.querySelector('.card-3d');
+        if (!card) return;
+        var front = card.querySelector('.face-front');
+        var back  = card.querySelector('.face-back');
+
+        function setHeight() {
+          var isFlipped = card.classList.contains('flipped');
+          var target = isFlipped ? back : front;
+          if (!target) return;
+          card.style.height = target.offsetHeight + 'px';
+        }
+
+        window.addEventListener('load', setHeight);
+        window.addEventListener('resize', setHeight);
+
+        var mo = new MutationObserver(setHeight);
+        mo.observe(card, { attributes: true, attributeFilter: ['class'] });
+
+        if (window.ResizeObserver) {
+          var ro = new ResizeObserver(setHeight);
+          if (front) ro.observe(front);
+          if (back) ro.observe(back);
+        }
+
+        setHeight();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupAutoHeight);
+      } else {
+        setupAutoHeight();
+      }
     })();
   </script>
 
