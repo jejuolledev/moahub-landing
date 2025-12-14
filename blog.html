@@ -480,9 +480,7 @@
             </a>
         </div>
 
-        <div class="no-results">
-            <p>해당 카테고리의 글이 없습니다 😢</p>
-        </div>
+        <div class="no-results"></div>
 
         <div class="footer">
             <p>© 2025 Moahub. All rights reserved.</p>
@@ -514,10 +512,12 @@
                     }
                 });
 
-                // 결과 없음 메시지: "전체"가 아니고, 필터 결과가 0개일 때만 표시
+                // 결과 없음 메시지: "전체"가 아니고, 필터 결과가 0개일 때만 동적 생성
                 if (category !== 'all' && visibleCount === 0) {
+                    noResults.innerHTML = '<p>해당 카테고리의 글이 없습니다 😢</p>';
                     noResults.classList.add('show');
                 } else {
+                    noResults.innerHTML = '';
                     noResults.classList.remove('show');
                 }
             });
