@@ -154,9 +154,9 @@ body::before {
 
 .card-3d {
   width: 100%;
-  align-items: start;
   position: relative;
   display: grid;
+  align-items: start;
   grid-template-areas: "card";
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), height 0.28s ease;
@@ -266,12 +266,43 @@ h1 span {
 }
 
 /* =========================================
+   Game Info (below cards)
+   ========================================= */
+.game-info {
+  margin-top: 18px;
+  padding-top: 4px;
+}
+
+.game-info-title {
+  font-family: 'Jua', sans-serif;
+  font-size: 1.35rem;
+  margin: 0 0 8px;
+  color: #2c3e50;
+  letter-spacing: -0.02em;
+}
+
+.game-info-text {
+  margin: 0 0 8px;
+  font-size: 0.98rem;
+  color: #333;
+  word-break: keep-all;
+}
+
+.game-info-note {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #666;
+  font-style: italic;
+  word-break: keep-all;
+}
+
+/* =========================================
    Grid System
    ========================================= */
 .site-list {
   display: grid;
   margin-top: 6px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
 }
@@ -615,18 +646,24 @@ h1 span {
 }
 
 @media (max-width: 430px) {
-  
-  .main-section, .blog-section { padding: 22px 14px; }
-  .header { margin-bottom: 22px; }
-  h1 { font-size: 1.55rem; }
-  .subtitle { font-size: 0.95rem; }
+  .face-back.main-section { padding-bottom: 16px; }
+  .face-back .header { margin-bottom: 18px; }
+  .game-info { margin-top: 12px; }
+  .intro-section { padding: 14px 12px 12px; margin-top: 12px; }
+  .intro-title { font-size: 1.08rem; }
+  .intro-lead { font-size: 0.86rem; }
+  .intro-bullets li { font-size: 0.84rem; }
+  .intro-note { font-size: 0.78rem; }
+  .game-info-text { font-size: 0.86rem; }
+  .game-info-note { font-size: 0.78rem; }
 
-  .intro-section { padding: 14px 12px 12px; margin-top: 12px; line-height: 1.55; }
-  .intro-title { font-size: 1.05rem; margin-bottom: 8px; }
-  .intro-bullets li { font-size: 0.86rem; margin-bottom: 5px; }
-  .intro-section .intro-note { font-size: 0.82rem; }
+  .game-info { margin-top: 14px; }
+  .game-info-title { font-size: 1.15rem; }
+  .game-info-text { font-size: 0.88rem; }
+  .game-info-note { font-size: 0.80rem; }
+  .face-back.main-section { padding-bottom: 18px; }
 
-.container { padding: 0 16px; }
+  .container { padding: 0 16px; }
 
   .nav {
     padding: 10px;

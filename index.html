@@ -75,17 +75,18 @@
               <span class="badge">NEW</span>
             </a>
           </div>
-        
-          
-          <div class="intro-section">
+
+<div class="intro-section intro-section--hub">
             <h2 class="intro-title">모아허브 한눈에</h2>
+            <p class="intro-lead">가벼운 테스트로 <strong>나를 더 잘 이해</strong>해요.</p>
             <ul class="intro-bullets">
-              <li>MBTI · 연애 · AI 등 가벼운 테스트로 <strong>나를 이해</strong>해요.</li>
-              <li><strong>회원가입 없이</strong> 바로 시작하고, 결과는 <strong>핵심 요약</strong>으로 깔끔하게 보여줘요.</li>
-              <li>심심할 땐 <strong>미니게임</strong>, 더 알고 싶다면 <strong>블로그</strong>도 함께!</li>
+              <li><strong>회원가입 없이</strong> 바로 시작</li>
+              <li>결과는 <strong>핵심 요약</strong> 중심</li>
+              <li>미니게임과 블로그 콘텐츠도 함께</li>
             </ul>
-            <p class="intro-note">💡 운영 목적: 테스트·미니게임을 꾸준히 만들고, 일부 광고 수익은 콘텐츠 개선에 재투자합니다.</p>
+            <p class="intro-note">💡 운영 목적: 콘텐츠를 꾸준히 만들고, 일부 광고 수익은 개선에 재투자합니다.</p>
           </div>
+
 </div>
 
         <!-- BACK: Game Collection -->
@@ -99,17 +100,7 @@
           <div class="site-list">
             <a href="https://snake.moahub.co.kr" class="site-card pink-gradient" target="_self">
               <div class="site-icon">🐍</div>
-
-
-          <div class="intro-section intro-section--game">
-            <h2 class="intro-title">모아 게임 한눈에</h2>
-            <ul class="intro-bullets">
-              <li>잠깐 쉬고 싶을 때, 가볍게 즐길 수 있는 <strong>힐링 미니게임</strong> 모음</li>
-              <li>새 게임을 계속 추가하고, 더 좋은 경험을 위해 꾸준히 개선해요</li>
-            </ul>
-            <p class="intro-note">💡 운영 목적: 부담 없이 즐길 수 있는 게임을 늘리고, 플레이 경험을 지속적으로 개선합니다.</p>
-          </div>
-              <h3>젤리뱀 스네이크</h3>
+<h3>젤리뱀 스네이크</h3>
               <p>추억의 스네이크! 별사탕 먹고 길~게 성장하세요</p>
               <span class="badge">NEW</span>
             </a>
@@ -120,6 +111,12 @@
               <h3>준비 중...</h3>
               <p>더 재미있는 게임이 곧 찾아옵니다!</p>
             </div>
+
+<div class="game-info">
+            <p class="game-info-text"><strong>모아 게임</strong>은 잠깐 쉬고 싶을 때 가볍게 즐기는 힐링 미니게임 모음이에요.</p>
+            <p class="game-info-note">💡 운영 목적: 새 게임을 추가하고, 플레이 경험을 꾸준히 개선합니다.</p>
+          </div>
+
           </div>
         </div>
       </div>
@@ -267,7 +264,7 @@
     })();
   </script>
 
-  <!-- ✅ 앞/뒤 전환 시 카드 높이 자동 조절(모아 게임 공백 크게 남는 문제 해결) -->
+  <!-- ✅ 앞/뒤 전환 시 카드 높이 자동 조절(모아 게임 공백 문제 해결) -->
   <script>
     (function () {
       function setupAutoHeight() {
@@ -276,11 +273,19 @@
         var front = card.querySelector('.face-front');
         var back  = card.querySelector('.face-back');
 
+        function measure(target) {
+          if (!target) return 0;
+          // 의존성 끊기: 먼저 auto로 풀고 측정
+          card.style.height = 'auto';
+          // scrollHeight가 offsetHeight보다 안정적으로 실제 콘텐츠 높이를 반영
+          return Math.max(target.scrollHeight, target.offsetHeight);
+        }
+
         function setHeight() {
           var isFlipped = card.classList.contains('flipped');
           var target = isFlipped ? back : front;
-          if (!target) return;
-          card.style.height = target.offsetHeight + 'px';
+          var h = measure(target);
+          if (h > 0) card.style.height = h + 'px';
         }
 
         window.addEventListener('load', setHeight);
