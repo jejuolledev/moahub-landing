@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="심리학, AI, 자기계발에 대한 유익한 정보를 제공합니다">
+    <link rel="canonical" href="https://moahub.co.kr/blog.html">
     <title>블로그 - Moahub</title>
 
     <!-- Favicon -->
@@ -272,6 +273,19 @@
             font-weight: 700;
         }
 
+        /* No Results Message */
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-sub);
+            font-size: 1.1rem;
+        }
+
+        .no-results.show {
+            display: block;
+        }
+
         .footer {
             text-align: center;
             margin-top: 2rem;
@@ -500,8 +514,8 @@
                     }
                 });
 
-                // 결과 없음 메시지
-                if (visibleCount === 0) {
+                // 결과 없음 메시지: "전체"가 아니고, 필터 결과가 0개일 때만 표시
+                if (category !== 'all' && visibleCount === 0) {
                     noResults.classList.add('show');
                 } else {
                     noResults.classList.remove('show');
